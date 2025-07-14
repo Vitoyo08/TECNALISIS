@@ -6,13 +6,22 @@
   <title>TECNALISIS SAS</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background: linear-gradient(-45deg, #003366, #004080, #0066cc, #3399ff);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     header {
-      background-color: #003366;
+      background-color: rgba(0, 51, 102, 0.9);
       color: white;
       padding: 1em 2em;
       display: flex;
@@ -36,16 +45,20 @@
 
     section {
       padding: 2em;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: black;
+      margin: 1em;
+      border-radius: 10px;
     }
 
     .hero {
-      background-color: #e0e0e0;
+      background-color: rgba(224, 224, 224, 0.8);
       text-align: center;
       padding: 4em 2em;
     }
 
     footer {
-      background-color: #003366;
+      background-color: rgba(0, 51, 102, 0.9);
       color: white;
       text-align: center;
       padding: 1em;
@@ -97,7 +110,6 @@
       text-decoration: none;
     }
 
-    /* Responsive Design */
     @media (max-width: 768px) {
       header {
         flex-direction: column;
