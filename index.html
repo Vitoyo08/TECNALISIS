@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TECNALISIS SAS</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    header { background-color: #003366; color: white; padding: 1em 2em; }
-    nav ul { list-style: none; padding: 0; display: flex; gap: 1em; }
+    header { background-color: #003366; color: white; padding: 1em 2em; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+    nav ul { list-style: none; padding: 0; display: flex; gap: 1em; margin: 0; }
     nav a { color: white; text-decoration: none; }
     section { padding: 2em; }
     .hero { background-color: #e0e0e0; text-align: center; padding: 4em 2em; }
     footer { background-color: #003366; color: white; text-align: center; padding: 1em; }
     .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1em; }
     .card { background: #f5f5f5; padding: 1em; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    .card img { max-width: 100%; border-radius: 5px; margin-bottom: 0.5em; height: 150px; object-fit: cover; }
+    .card img { max-width: 100%; border-radius: 5px; margin-bottom: 0.5em; height: 150px; object-fit: cover; display: block; margin-left: auto; margin-right: auto; }
+    .card h3 { text-align: center; }
     .whatsapp-button {
       position: fixed;
       bottom: 20px;
@@ -35,6 +36,7 @@
   </style>
 </head>
 <body>
+
   <header>
     <img src="imagenes/LOGO_TECNALISIS.png" alt="Logo TECNALISIS SAS" style="height: 100px;">
     <nav>
@@ -55,40 +57,47 @@
   <section id="servicios">
     <h2>Nuestros Servicios</h2>
     <div class="services">
+      
       <div class="card">
-        <img src="imagenes/mantenimiento_basado_en_la_condición.jpg.jpg" alt="Mantenimiento basado en la condición" style="display: block; margin: 0 auto;">
-        <h3 style="text-align: center;">Mantenimiento Basado en la Condición (CBM)</h3>
-  <li>Análisis de Vibraciones</li>
-  <li>Inspecciones por Ultrasonido: a rodamientos, trampas de vapor y detección de fugas.</li>
-  <li>Termografía Infrarroja</li>
-  <li>Inspecciones con equipo especializado como: Boroscopio, pirómetro, tacómetro, entre otros.</li>
-  <li>Inspecciones Visuales en Campo.</li>
-   <li>Análisis de Aceites en Laboratorio.</li>
-  <li>Outsourcing Industrial</li>
-</ul></p>
+        <img src="imagenes/mantenimiento_basado_en_la_condición.jpg" alt="Mantenimiento basado en la condición">
+        <h3>Mantenimiento Basado en la Condición (CBM)</h3>
+        <ul>
+          <li>Análisis de Vibraciones</li>
+          <li>Inspecciones por Ultrasonido: a rodamientos, trampas de vapor y detección de fugas.</li>
+          <li>Termografía Infrarroja</li>
+          <li>Inspecciones con equipo especializado como: Boroscopio, pirómetro, tacómetro, entre otros.</li>
+          <li>Inspecciones Visuales en Campo</li>
+          <li>Análisis de Aceites en Laboratorio</li>
+          <li>Outsourcing Industrial</li>
+        </ul>
       </div>
+
       <div class="card">
-        <img src="imagenes/ingenieria_de_alta_precision.jpg.jpg" alt="Ingeniería de alta precisión" style="display: block; margin: 0 auto;">
-        <h3 style="text-align: center;">Ingeniería de Alta Precisión</h3>
-  <li>Balanceo Dinámico in Situ y en Banco.</li>
-  <li>Alineación Láser de Ejes (horizontales y verticales).</li>
-  <li>Alineación Láser de Poleas.</li>
-  <li>Montaje y Desmontaje de Rodamientos.</li>
-  <li>Montaje y Desmontaje de Sistemas de Transmisión.</li>
-</ul></p>
+        <img src="imagenes/ingenieria_de_alta_precision.jpg" alt="Ingeniería de alta precisión">
+        <h3>Ingeniería de Alta Precisión</h3>
+        <ul>
+          <li>Balanceo Dinámico in Situ y en Banco</li>
+          <li>Alineación Láser de Ejes (horizontales y verticales)</li>
+          <li>Alineación Láser de Poleas</li>
+          <li>Montaje y Desmontaje de Rodamientos</li>
+          <li>Montaje y Desmontaje de Sistemas de Transmisión</li>
+        </ul>
       </div>
+
       <div class="card">
-        <img src="imagenes/ingenieria_de_desarrollo.jpg.jpg" alt="Ingeniería de alta precisión" style="display: block; margin: 0 auto;">
-        <h3 style="text-align: center;">Ingeniería de Desarrollo</h3>
-  <li>Proyectos de Mejora.</li>
-  <li>Análisis de Falla en Rodamientos.</li>
-  <li>Recálculo y Selección de Transmisiones.</li>
-  <li>Transferencia de Conocimiento.</li>
-  <li>Implementación de Gestión de Lubricación Industrial.</li>
-  <li>Accesoria en Herramientas de Mantenimiento Especializadas.</li>
-  <li>Auditoría Enfocada en Mantenimiento.</li>
-</ul></p>
+        <img src="imagenes/ingenieria_de_desarrollo.jpg" alt="Ingeniería de Desarrollo">
+        <h3>Ingeniería de Desarrollo</h3>
+        <ul>
+          <li>Proyectos de Mejora</li>
+          <li>Análisis de Falla en Rodamientos</li>
+          <li>Recálculo y Selección de Transmisiones</li>
+          <li>Transferencia de Conocimiento</li>
+          <li>Implementación de Gestión de Lubricación Industrial</li>
+          <li>Asesoría en Herramientas de Mantenimiento Especializadas</li>
+          <li>Auditoría Enfocada en Mantenimiento</li>
+        </ul>
       </div>
+
     </div>
   </section>
 
@@ -99,9 +108,9 @@
 
   <section id="contacto">
     <h2>Contacto</h2>
-    <p>Email: contacto@tecnalisis.com</p>
-    <p>Teléfono: (+57) 317 365 1648</p>
-    <p>Dirección: Calle 54 #12C-13, Cali, Colombia</p>
+    <p><strong>Email:</strong> contacto@tecnalisis.com</p>
+    <p><strong>Teléfono:</strong> (+57) 317 365 1648</p>
+    <p><strong>Dirección:</strong> Calle 54 #12C-13, Cali, Colombia</p>
   </section>
 
   <footer>
@@ -109,5 +118,8 @@
   </footer>
 
   <a class="whatsapp-button" href="https://wa.me/573173651648" target="_blank" title="Escríbenos por WhatsApp">
-    &#x1F4AC;
+    💬
   </a>
+
+</body>
+</html>
