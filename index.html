@@ -36,6 +36,7 @@
       display: flex;
       gap: 1em;
       margin: 0;
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -66,7 +67,7 @@
 
     .services {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1em;
     }
 
@@ -108,6 +109,12 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.3);
       font-size: 30px;
       text-decoration: none;
+      z-index: 1000;
+    }
+
+    .whatsapp-button img {
+      width: 60%;
+      height: 60%;
     }
 
     @media (max-width: 768px) {
@@ -179,11 +186,11 @@
         <h3>Mantenimiento Basado en la Condición (CBM)</h3>
         <ul>
           <li>Análisis de Vibraciones</li>
-          <li>Inspecciones por Ultrasonido: a rodamientos, trampas de vapor y detección de fugas.</li>
+          <li>Inspecciones por Ultrasonido</li>
           <li>Termografía Infrarroja</li>
-          <li>Inspecciones con equipo especializado como: Boroscopio, pirómetro, tacómetro, entre otros.</li>
+          <li>Inspecciones Especializadas</li>
           <li>Inspecciones Visuales en Campo</li>
-          <li>Análisis de Aceites en Laboratorio</li>
+          <li>Análisis de Aceites</li>
           <li>Outsourcing Industrial</li>
         </ul>
       </div>
@@ -192,11 +199,11 @@
         <img src="imagenes/ingenieria_de_alta_precision.jpg" alt="Ingeniería de alta precisión">
         <h3>Ingeniería de Alta Precisión</h3>
         <ul>
-          <li>Balanceo Dinámico in Situ y en Banco</li>
-          <li>Alineación Láser de Ejes (horizontales y verticales)</li>
+          <li>Balanceo Dinámico</li>
+          <li>Alineación Láser de Ejes</li>
           <li>Alineación Láser de Poleas</li>
-          <li>Montaje y Desmontaje de Rodamientos</li>
-          <li>Montaje y Desmontaje de Sistemas de Transmisión</li>
+          <li>Montaje/Desmontaje de Rodamientos</li>
+          <li>Montaje/Desmontaje de Sistemas de Transmisión</li>
         </ul>
       </div>
 
@@ -205,12 +212,11 @@
         <h3>Ingeniería de Desarrollo</h3>
         <ul>
           <li>Proyectos de Mejora</li>
-          <li>Análisis de Falla en Rodamientos</li>
-          <li>Recálculo y Selección de Transmisiones</li>
-          <li>Transferencia de Conocimiento</li>
-          <li>Implementación de Gestión de Lubricación Industrial</li>
-          <li>Asesoría en Herramientas de Mantenimiento Especializadas</li>
-          <li>Auditoría Enfocada en Mantenimiento</li>
+          <li>Análisis de Falla</li>
+          <li>Selección de Transmisiones</li>
+          <li>Gestión de Lubricación</li>
+          <li>Asesoría Técnica</li>
+          <li>Auditorías de Mantenimiento</li>
         </ul>
       </div>
 
@@ -233,10 +239,8 @@
     <p>&copy; 2025 TECNALISIS SAS. Todos los derechos reservados.</p>
   </footer>
 
-  <<a class="whatsapp-button" href="https://wa.me/573173651648" target="_blank" title="Escríbenos por WhatsApp">
-  <img src="imagenes/logo_whatsapp.png" alt="WhatsApp" style="width: 60%; height: 60%;">
-</a>">
-    💬
+  <a class="whatsapp-button" href="https://wa.me/573173651648" target="_blank" title="Escríbenos por WhatsApp">
+    <img src="imagenes/logo_whatsapp.png" alt="WhatsApp">
   </a>
 
 </body>
