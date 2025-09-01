@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title> TECNALISIS S.A.S — Confiabilidad industrial</title>
+<title>TECNALISIS S.A.S. — Confiabilidad industrial</title>
 <meta name="description" content="Mantenimiento basado en condición, análisis de vibraciones, balanceo, alineación láser y proyectos de mejora para aumentar la disponibilidad y confiabilidad de activos.">
 <meta property="og:title" content="TECNALISIS S.A.S. — Confiabilidad industrial" />
 <meta property="og:description" content="Servicios CBM, alta precisión y desarrollo para optimizar tu producción." />
@@ -33,6 +33,31 @@
   #mainHeader.scrolled { background: rgba(2,6,23,0.86); border-bottom-color: rgba(255,255,255,0.18);}
   .nav a.active { position:relative; }
   .nav a.active::after { content:''; position:absolute; left:0; right:0; bottom:-8px; height:2px; background:#fff; border-radius:2px; }
+
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      font-size: 30px;
+      text-decoration: none;
+      z-index: 1000;
+    }
+
+    .whatsapp-button img {
+      width: 60%;
+      height: 60%;
+    }
+
 </style>
 </head>
 <body class="min-h-screen text-white">
@@ -531,9 +556,12 @@
         document.querySelector(`[data-panel="${tab}"]`).classList.remove('hidden');
       });
     });
- </script>
-  <a class="whatsapp-button" href="https://wa.me/573173651648" target="_blank" title="Escríbenos por WhatsApp">
-    <img src="imagenes/logo_whatsapp.png" alt="WhatsApp">
-  </a>
+  </script>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a class="whatsapp-button" href="https://wa.me/573173651648" target="_blank" title="Escríbenos por WhatsApp">
+      <img src="imagenes/logo_whatsapp.png" alt="WhatsApp">
+    </a>
+
 </body>
 </html>
