@@ -9,8 +9,8 @@
 <meta content="Mantenimiento basado en condición, análisis de vibraciones, balanceo, alineación láser y proyectos de mejora para aumentar la disponibilidad y confiabilidad de activos." name="description"/>
 <meta content="TECNALISIS S.A.S. — Confiabilidad industrial" property="og:title"/>
 <meta content="Servicios CBM, alta precisión y desarrollo para optimizar tu producción." property="og:description"/>
-<meta content="website" property="og:type">
-<meta content="#0B3B60" name="theme-color"/>
+<meta content="website" property="og:type"/>
+<meta content="#0B3B60" name="theme-color">
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -112,6 +112,10 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   color:inherit;
 }
 #mobileMenuList a:hover{background:#f3f4f6}
+</style><style>/* TECNALISIS mobile menu HIDE header links */
+@media (max-width: 1024px){
+  .mobile-hide-link{ display:none !important; }
+}
 </style></head>
 <body class="min-h-screen text-white"><a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 <!-- Header -->
@@ -594,7 +598,8 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <a class="whatsapp-button" href="https://wa.me/573173651648" rel="noopener noreferrer" target="_blank" title="Escríbenos por WhatsApp">
 <img alt="WhatsApp" decoding="async" loading="lazy" src="imagenes/logo_whatsapp.png"/>
 </a>
-<script>(function(){const setVH=()=>document.documentElement.style.setProperty('--vh',`${window.innerHeight*0.01}px`);setVH();window.addEventListener('resize',setVH);})(); // Fix 100vh on mobile</script><script>/* TECNALISIS mobile menu script */
+<script>(function(){const setVH=()=>document.documentElement.style.setProperty('--vh',`${window.innerHeight*0.01}px`);setVH();window.addEventListener('resize',setVH);})(); // Fix 100vh on mobile</script><script>
+/* TECNALISIS mobile menu script (enhanced: include header anchors + hide on mobile) */
 (function(){
   function ready(fn){ if(document.readyState!='loading'){ fn(); } else { document.addEventListener('DOMContentLoaded', fn); } }
   ready(function(){
@@ -602,57 +607,72 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     if(!header) return;
     var desktopNav = header.querySelector('.desktop-nav');
     var list = document.getElementById('mobileMenuList');
-    if(desktopNav && list && list.children.length===0){
-      var anchors = desktopNav.querySelectorAll('a[href]');
-      var wanted = ['servicios','industrias','porque nosotros','por qué nosotros','casos','política de calidad','politica de calidad','quienes somos','quiénes somos','solicitar propuesta'];
-      anchors.forEach(function(a){
-        var text = (a.textContent||'').trim().toLowerCase();
-        // seleccionar solo los items superiores (según texto)
-        if (wanted.some(function(w){ return text.indexOf(w) !== -1; })) {
-          var li = document.createElement('li');
-          var cl = a.cloneNode(true);
-          cl.removeAttribute('id'); // evitar duplicados de id
-          cl.removeAttribute('target'); // mejor comportamiento en móvil
-          li.appendChild(cl);
-          list.appendChild(li);
-        }
-      });
-      // si no se encontró por textos, clonar el 1er nivel de enlaces
-      if(list.children.length===0){
-        anchors.forEach(function(a, idx){
-          if(idx<12){ // límite sano
+    var wanted = ['servicios','industrias','porque nosotros','por qué nosotros','casos','política de calidad','politica de calidad','quienes somos','quiénes somos','solicitar propuesta'];
+
+    function matchesWanted(text){
+      text = (text||'').trim().toLowerCase();
+      return wanted.some(function(w){ return text.indexOf(w) !== -1; });
+    }
+
+    if(list && list.children.length===0){
+      // 1) Take from desktop nav if present
+      if(desktopNav){
+        desktopNav.querySelectorAll('a[href]').forEach(function(a){
+          if(matchesWanted(a.textContent)){
             var li = document.createElement('li');
             var cl = a.cloneNode(true);
             cl.removeAttribute('id');
+            cl.removeAttribute('target');
             li.appendChild(cl);
             list.appendChild(li);
           }
         });
       }
+      // 2) Also scan direct header anchors (outside nav), add them to menu and hide on mobile
+      header.querySelectorAll('a[href]').forEach(function(a){
+        if(a.id === 'mobileMenuToggle' || a.closest('.mobile-menu')) return; // skip menu controls
+        if(matchesWanted(a.textContent)){
+          if(!Array.from(list.querySelectorAll('a')).some(function(x){ return (x.textContent||'').trim() === (a.textContent||'').trim(); })){
+            var li = document.createElement('li');
+            var cl = a.cloneNode(true);
+            cl.removeAttribute('id');
+            cl.removeAttribute('target');
+            li.appendChild(cl);
+            list.appendChild(li);
+          }
+          // Hide original on mobile to avoid duplicates
+          a.classList.add('mobile-hide-link');
+        }
+      });
+
+      // Fallback: if still empty, clone first-level anchors from header
+      if(list.children.length===0){
+        header.querySelectorAll('a[href]').forEach(function(a, idx){
+          if(a.id === 'mobileMenuToggle' || a.closest('.mobile-menu')) return;
+          if(idx<12){
+            var li = document.createElement('li');
+            var cl = a.cloneNode(true);
+            cl.removeAttribute('id');
+            li.appendChild(cl);
+            list.appendChild(li);
+            a.classList.add('mobile-hide-link');
+          }
+        });
+      }
     }
+
+    // Toggle logic
     var btn = document.getElementById('mobileMenuToggle');
     var panel = document.getElementById('mobileMenuPanel');
     if(!btn || !panel) return;
-    function closeMenu(){
-      btn.setAttribute('aria-expanded','false');
-      panel.setAttribute('aria-hidden','true');
-    }
-    function openMenu(){
-      btn.setAttribute('aria-expanded','true');
-      panel.setAttribute('aria-hidden','false');
-    }
-    btn.addEventListener('click', function(){
-      var expanded = btn.getAttribute('aria-expanded') === 'true';
-      if(expanded){ closeMenu(); } else { openMenu(); }
-    });
+    function closeMenu(){ btn.setAttribute('aria-expanded','false'); panel.setAttribute('aria-hidden','true'); }
+    function openMenu(){ btn.setAttribute('aria-expanded','true'); panel.setAttribute('aria-hidden','false'); }
+    btn.addEventListener('click', function(){ (btn.getAttribute('aria-expanded')==='true') ? closeMenu() : openMenu(); });
     document.addEventListener('click', function(e){
-      if(!panel.contains(e.target) && e.target!==btn && !btn.contains(e.target)){
-        closeMenu();
-      }
+      if(!panel.contains(e.target) && e.target!==btn && !btn.contains(e.target)){ closeMenu(); }
     });
-    document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape') closeMenu();
-    });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeMenu(); });
   });
-})();</script></body>
+})();
+</script></body>
 </html>
