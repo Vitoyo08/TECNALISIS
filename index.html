@@ -8,8 +8,8 @@
 <title>TECNALISIS SAS (TECNALISIS)</title>
 <meta content="Mantenimiento basado en condición, análisis de vibraciones, balanceo, alineación láser y proyectos de mejora para aumentar la disponibilidad y confiabilidad de activos." name="description"/>
 <meta content="TECNALISIS S.A.S. — Confiabilidad industrial" property="og:title"/>
-<meta content="Servicios CBM, alta precisión y desarrollo para optimizar tu producción." property="og:description">
-<meta content="website" property="og:type"/>
+<meta content="Servicios CBM, alta precisión y desarrollo para optimizar tu producción." property="og:description"/>
+<meta content="website" property="og:type">
 <meta content="#0B3B60" name="theme-color"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -80,6 +80,38 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 /* Skip link */
 .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
 .skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:#fff;color:#111;padding:.5rem .75rem;border-radius:.5rem;z-index:9999}
+</style><style>/* TECNALISIS mobile menu */
+/* Base visibility */
+.mobile-nav{display:none}
+/* Desktop nav visible by default */
+.desktop-nav{display:block}
+/* Breakpoint: tablets y móviles */
+@media (max-width: 1024px){
+  .desktop-nav{display:none !important}
+  .mobile-nav{display:block}
+}
+.mobile-menu{position:relative; z-index: 50;}
+.mobile-menu__btn{
+  display:flex; align-items:center; gap:.5rem;
+  padding:.6rem .9rem; border-radius:.75rem; border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.9); color:#111; font-weight:600;
+}
+.mobile-menu__btn:focus{outline:2px solid #2563eb; outline-offset:2px}
+.mobile-menu__icon{margin-left:.25rem}
+.mobile-menu__panel{
+  position:absolute; right:0; left:auto; top:calc(100% + .5rem);
+  min-width: 240px; background:#fff; color:#111; border-radius:.75rem;
+  border:1px solid rgba(0,0,0,.08); box-shadow:0 10px 30px rgba(0,0,0,.15);
+  padding:.5rem; display:none; max-height:70vh; overflow:auto;
+}
+.mobile-menu__panel[aria-hidden="false"]{display:block}
+#mobileMenuList{list-style:none; margin:0; padding:0}
+#mobileMenuList li{margin:0; padding:0}
+#mobileMenuList a{
+  display:block; padding:.75rem .875rem; border-radius:.5rem; text-decoration:none;
+  color:inherit;
+}
+#mobileMenuList a:hover{background:#f3f4f6}
 </style></head>
 <body class="min-h-screen text-white"><a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 <!-- Header -->
@@ -89,7 +121,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <!-- Logo -->
 <img alt="largo blanco tecnalisis" decoding="async" loading="lazy" src="imagenes/largo_blanco_tecnalisis.png" style="height: 70px;"/>
 <!-- Desktop nav -->
-<nav class="nav hidden md:flex items-center gap-6 text-sm">
+<div class="mobile-nav mobile-menu"><button aria-controls="mobileMenuPanel" aria-expanded="false" aria-label="Abrir menú" class="mobile-menu__btn" id="mobileMenuToggle">Menú<span aria-hidden="true" class="mobile-menu__icon">☰</span></button><div aria-hidden="true" class="mobile-menu__panel" id="mobileMenuPanel"><ul id="mobileMenuList"></ul></div></div><nav class="nav hidden md:flex items-center gap-6 text-sm desktop-nav">
 <a class="hover:opacity-80" href="#servicios">Servicios</a>
 <a class="hover:opacity-80" href="#industrias">Industrias</a>
 <a class="hover:opacity-80" href="#por-que">¿Por qué nosotros?</a>
@@ -562,5 +594,65 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <a class="whatsapp-button" href="https://wa.me/573173651648" rel="noopener noreferrer" target="_blank" title="Escríbenos por WhatsApp">
 <img alt="WhatsApp" decoding="async" loading="lazy" src="imagenes/logo_whatsapp.png"/>
 </a>
-<script>(function(){const setVH=()=>document.documentElement.style.setProperty('--vh',`${window.innerHeight*0.01}px`);setVH();window.addEventListener('resize',setVH);})(); // Fix 100vh on mobile</script></body>
+<script>(function(){const setVH=()=>document.documentElement.style.setProperty('--vh',`${window.innerHeight*0.01}px`);setVH();window.addEventListener('resize',setVH);})(); // Fix 100vh on mobile</script><script>/* TECNALISIS mobile menu script */
+(function(){
+  function ready(fn){ if(document.readyState!='loading'){ fn(); } else { document.addEventListener('DOMContentLoaded', fn); } }
+  ready(function(){
+    var header = document.querySelector('header');
+    if(!header) return;
+    var desktopNav = header.querySelector('.desktop-nav');
+    var list = document.getElementById('mobileMenuList');
+    if(desktopNav && list && list.children.length===0){
+      var anchors = desktopNav.querySelectorAll('a[href]');
+      var wanted = ['servicios','industrias','porque nosotros','por qué nosotros','casos','política de calidad','politica de calidad','quienes somos','quiénes somos','solicitar propuesta'];
+      anchors.forEach(function(a){
+        var text = (a.textContent||'').trim().toLowerCase();
+        // seleccionar solo los items superiores (según texto)
+        if (wanted.some(function(w){ return text.indexOf(w) !== -1; })) {
+          var li = document.createElement('li');
+          var cl = a.cloneNode(true);
+          cl.removeAttribute('id'); // evitar duplicados de id
+          cl.removeAttribute('target'); // mejor comportamiento en móvil
+          li.appendChild(cl);
+          list.appendChild(li);
+        }
+      });
+      // si no se encontró por textos, clonar el 1er nivel de enlaces
+      if(list.children.length===0){
+        anchors.forEach(function(a, idx){
+          if(idx<12){ // límite sano
+            var li = document.createElement('li');
+            var cl = a.cloneNode(true);
+            cl.removeAttribute('id');
+            li.appendChild(cl);
+            list.appendChild(li);
+          }
+        });
+      }
+    }
+    var btn = document.getElementById('mobileMenuToggle');
+    var panel = document.getElementById('mobileMenuPanel');
+    if(!btn || !panel) return;
+    function closeMenu(){
+      btn.setAttribute('aria-expanded','false');
+      panel.setAttribute('aria-hidden','true');
+    }
+    function openMenu(){
+      btn.setAttribute('aria-expanded','true');
+      panel.setAttribute('aria-hidden','false');
+    }
+    btn.addEventListener('click', function(){
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      if(expanded){ closeMenu(); } else { openMenu(); }
+    });
+    document.addEventListener('click', function(e){
+      if(!panel.contains(e.target) && e.target!==btn && !btn.contains(e.target)){
+        closeMenu();
+      }
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeMenu();
+    });
+  });
+})();</script></body>
 </html>
