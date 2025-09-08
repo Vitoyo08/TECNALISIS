@@ -3,50 +3,127 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" href="imagenes/ICONO_TECNALISIS.png">
-  <title>Mensaje enviado - TECNALISIS S.A.S</title>
+  <link rel="icon" href="/imagenes/ICONO_TECNALISIS.png">
+  <title>Mensaje enviado — TECNALISIS S.A.S</title>
   <meta name="theme-color" content="#0B3B60" />
+  <meta name="description" content="Confirmación de envío de mensaje en TECNALISIS S.A.S. Nuestro equipo se pondrá en contacto contigo a la mayor brevedad." />
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ecf3f8',
+              100: '#d8e7f1',
+              200: '#b1cfe3',
+              300: '#8ab7d4',
+              400: '#639fc6',
+              500: '#3c87b7',
+              600: '#1f6a99', // intermedio
+              700: '#15537a',
+              800: '#0B3B60', // principal usado en el sitio
+              900: '#06273F'
+            }
+          },
+          fontFamily: {
+            sans: ["Inter", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
-  </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-gray-50 text-gray-900 font-sans">
   <!-- Header -->
-  <header class="bg-white shadow">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <img src="imagenes/LOGO_TECNALISIS_fondo_osc.png" alt="Logo TECNALISIS" class="h-10">
-        <span class="font-bold text-xl text-blue-900">TECNALISIS S.A.S</span>
+  <header class="sticky top-0 z-50 bg-brand-800 text-white shadow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3">
+          <img src="/imagenes/LOGO_TECNALISIS_blanco.png" alt="Logo corporativo de TECNALISIS S.A.S" class="h-9 w-auto" loading="lazy" onerror="this.src='/imagenes/LOGO_TECNALISIS_fondo_osc.png'">
+          <span class="hidden sm:inline font-extrabold tracking-tight">TECNALISIS S.A.S</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm font-semibold">
+          <a class="hover:opacity-90" href="/#servicios">Servicios</a>
+          <a class="hover:opacity-90" href="/#industrias">Industrias</a>
+          <a class="hover:opacity-90" href="/#por-que-nosotros">¿Por qué nosotros?</a>
+          <a class="hover:opacity-90" href="/#casos">Casos</a>
+          <a class="hover:opacity-90" href="/#politica-calidad">Política de calidad</a>
+          <a class="hover:opacity-90" href="/#quienes-somos">Quiénes somos</a>
+          <a class="hover:opacity-90" href="/#contacto">Contacto</a>
+          <a href="/#contacto" class="ml-2 inline-flex items-center gap-2 rounded-lg bg-white/10 px-4 py-2 ring-1 ring-white/20 hover:bg-white/20 transition">
+            <span>Solicitar propuesta</span>
+          </a>
+        </nav>
+        <!-- Menú móvil mínimo (opcional: puede conectarse a offcanvas del sitio principal) -->
+        <a href="/#contacto" class="md:hidden inline-flex items-center gap-2 rounded-lg bg-white/10 px-3 py-2 ring-1 ring-white/20 hover:bg-white/20 transition text-sm">
+          Contacto
+        </a>
       </div>
-      <nav>
-        <a href="index.html" class="text-blue-700 font-semibold hover:underline">Inicio</a>
-      </nav>
     </div>
   </header>
 
   <!-- Contenido principal -->
-  <main class="flex items-center justify-center h-[70vh]">
-    <div class="bg-white shadow-lg rounded-lg p-8 text-center max-w-lg">
-      <h1 class="text-3xl font-bold text-blue-800 mb-4">¡Gracias por tu mensaje!</h1>
-      <p class="text-lg text-gray-700 mb-6">
+  <main class="min-h-[60vh] md:min-h-[70vh] grid place-items-center px-4">
+    <div class="bg-white shadow-xl rounded-2xl p-8 sm:p-10 text-center max-w-lg w-full">
+      <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-100">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7 text-green-600" aria-hidden="true">
+          <path fill-rule="evenodd" d="M2.25 12a9.75 9.75 0 1119.5 0 9.75 9.75 0 01-19.5 0zm14.03-1.72a.75.75 0 10-1.06-1.06L10.5 14.44l-1.72-1.72a.75.75 0 10-1.06 1.06l2.25 2.25a.75.75 0 001.06 0l5.25-5.25z" clip-rule="evenodd"/>
+        </svg>
+      </div>
+      <h1 class="text-3xl font-extrabold text-brand-800 mb-3">¡Gracias por tu mensaje!</h1>
+      <p class="text-base sm:text-lg text-gray-700 mb-6">
         Hemos recibido tu mensaje correctamente. Nuestro equipo de <strong>TECNALISIS S.A.S</strong> se pondrá en contacto contigo lo antes posible.
       </p>
-      <a href="index.html" class="bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-800 transition">
-        Volver al inicio
-      </a>
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+        <a href="/" class="inline-flex justify-center rounded-lg bg-brand-800 px-5 py-3 font-semibold text-white hover:bg-brand-700 transition" aria-label="Volver al inicio de TECNALISIS">
+          Volver al inicio
+        </a>
+        <a href="https://wa.me/573173651648" target="_blank" rel="noopener" class="inline-flex justify-center rounded-lg bg-white px-5 py-3 font-semibold text-brand-800 ring-1 ring-brand-200 hover:bg-brand-50 transition" aria-label="Escribir por WhatsApp a TECNALISIS">
+          Chatear por WhatsApp
+        </a>
+      </div>
     </div>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-blue-900 text-white py-6">
-    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
-      <p class="text-sm">© 2025 TECNALISIS S.A.S. Todos los derechos reservados.</p>
-      <img src="imagenes/LOGO_TECNALISIS_fondo_osc.png" alt="Logo TECNALISIS" class="h-8">
+  <footer class="bg-brand-900 text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div>
+          <p class="font-semibold">TECNALISIS S.A.S</p>
+          <p class="text-sm opacity-90">Cali, Colombia</p>
+          <p class="mt-2 text-sm">Tel: <a class="underline hover:opacity-90" href="tel:+573173651648">(+57) 317 365 1648</a> · Email: <a class="underline hover:opacity-90" href="mailto:contacto@tecnalisis.com">contacto@tecnalisis.com</a></p>
+        </div>
+        <img src="/imagenes/LOGO_TECNALISIS_blanco.png" alt="Logo TECNALISIS en blanco" class="h-9 w-auto" loading="lazy" onerror="this.src='/imagenes/LOGO_TECNALISIS_fondo_osc.png'">
+      </div>
+      <div class="mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-t border-white/10 pt-4 text-xs">
+        <p>© 2025 TECNALISIS S.A.S. Todos los derechos reservados.</p>
+        <p class="space-x-2">
+          <a href="/politica-privacidad" class="underline hover:opacity-90">Política de privacidad</a>
+          <span aria-hidden="true">·</span>
+          <a href="/terminos" class="underline hover:opacity-90">Términos de servicio</a>
+        </p>
+      </div>
     </div>
   </footer>
+
+  <!-- Datos estructurados mínimos para el tipo WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Mensaje enviado — TECNALISIS S.A.S",
+    "url": "https://www.tecnalisis.com/pagina_gracias",
+    "inLanguage": "es",
+    "isPartOf": { "@type": "WebSite", "name": "TECNALISIS S.A.S", "url": "https://www.tecnalisis.com/" }
+  }
+  </script>
 </body>
 </html>
