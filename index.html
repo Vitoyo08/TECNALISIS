@@ -118,35 +118,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 @media (max-width: 1024px){
   .mobile-hide-link{ display:none !important; }
 }
-</style>
-<style>
-.hero-video {
-  min-height: 400px;
-}
-
-/* Tablets en vertical */
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-  .hero-video {
-    height: 100vh;
-  }
-}
-
-/* Tablets en horizontal */
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  .hero-video {
-    height: 70vh;
-  }
-}
-
-/* Pantallas muy anchas */
-@media (min-width: 1600px) {
-  .hero-video {
-    height: 75vh;
-  }
-}
-</style>
-
-</head>
+</style></head>
 <body class="min-h-screen text-white"><a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 <!-- Header -->
 <header class="sticky top-0 z-40 border-b border-white/10 bg-slate-900/40 backdrop-blur transition-colors" id="mainHeader">
@@ -188,27 +160,10 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <a class="block" href="#contacto">Contacto</a>
 </nav>
 </header>
-  <!-- Hero con video -->
-  <section class="relative w-full h-screen md:h-[80vh] overflow-hidden hero-video">
-    <video
-      class="absolute inset-0 w-full h-full object-cover"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="metadata"
-      poster="imagenes/REFRIGERACION.jpg"
-    >
-      <source src="VIDEOS/TECNALISIS SAS_PAGINA_WEB.mp4" type="video/mp4">
-      Tu navegador no soporta video HTML5.
-    </video>
-
-    </section>
-
 <!-- Hero -->
-<section class="relative w-full h-screen md:h-[80vh] overflow-hidden hero-video">
+<section class="relative">
 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 grid lg:grid-cols-2 gap-10 items-center">
-<div class="glass-dark rounded-3xl p-6 sm:p-8">
+<div class="glass-dark rounded-3xl p-6 sm:p-8 h-auto max-h-none overflow-visible">
 <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight heading-outline">
           Confiabilidad industrial que se nota en la producción
         </h1>
@@ -233,7 +188,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 </div>
 <div class="relative rounded-3xl glass-dark p-0 ring-1 ring-white/10 overflow-hidden">
 <div class="relative" id="heroCarousel">
-<div class="slide active"><img alt="CBM" class="w-full h-[420px] object-cover" decoding="async" loading="lazy" src="https://www.tecnalisis.com/imagenes/mantenimiento_basado_en_la_condici%C3%B3n.jpg"/></div>
+<div class="slide active"><img alt="CBM" class="w-full h-[420px] object-cover aspect-[16/9] md:aspect-[16/10] object-cover w-full h-full" decoding="async" loading="lazy" src="https://www.tecnalisis.com/imagenes/mantenimiento_basado_en_la_condici%C3%B3n.jpg"/></div>
 <div class="slide"><img alt="Alta precisión" class="w-full h-[420px] object-cover" decoding="async" loading="lazy" src="https://www.tecnalisis.com/imagenes/ingenieria_de_alta_precision.jpg"/></div>
 <div class="slide"><img alt="Desarrollo" class="w-full h-[420px] object-cover" decoding="async" loading="lazy" src="https://www.tecnalisis.com/imagenes/ingenieria_de_desarrollo.jpg"/></div>
 <button aria-label="Anterior" class="prev">‹</button>
