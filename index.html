@@ -190,23 +190,9 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 </nav>
 </header>
 
-<!-- Hero con video completo + fondo desenfocado -->
+<!-- Hero con video 100% visible (sin recortes) -->
 <section class="relative w-full overflow-hidden bg-slate-900 md:h-[80vh]"
          style="height: 100dvh; min-height: 420px;">
-
-  <!-- Fondo desenfocado (rellena sin recortes) -->
-  <video
-    class="absolute inset-0 w-full h-full object-cover blur-xl scale-110"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="metadata"
-  >
-    <source src="VIDEOS/TECNALISIS SAS_PAGINA_WEB.mp4" type="video/mp4">
-  </video>
-
-  <!-- Video principal (sin recortes, encima del fondo) -->
   <video
     class="absolute inset-0 w-full h-full object-contain object-center"
     autoplay
@@ -222,10 +208,54 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 </section>
 
 
+<!-- Hero con video (mixto: contain en móvil, cover en escritorio) -->
 
 
-
-
+<!-- Hero -->
+<section class="relative">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 grid lg:grid-cols-2 gap-10 items-center">
+<div class="glass-dark rounded-3xl p-6 sm:p-8 h-auto max-h-none overflow-visible">
+<h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight heading-outline">
+          Confiabilidad industrial que se nota en la producción
+        </h1>
+<p class="mt-4 text-lg subtle-outline">
+          Programas de mantenimiento predictivo, ingeniería de precisión y proyectos de mejora
+          para aumentar disponibilidad, reducir paradas y optimizar el costo total de activos.
+        </p>
+<div class="mt-6 flex flex-wrap gap-3">
+<a class="inline-flex items-center justify-center px-5 py-3 bg-white text-slate-900 rounded-2xl hover:opacity-90" href="#contacto">Agendar visita técnica</a>
+<a class="inline-flex items-center justify-center px-5 py-3 rounded-2xl border border-white/40 text-white hover:bg-white/10" href="#servicios">Ver servicios</a>
+<a class="inline-flex items-center justify-center px-5 py-3 rounded-2xl border border-white/40 text-white hover:bg-white/10" href="https://wa.me/573173651648?text=Hola%20TECNALISIS%2C%20quisiera%20una%20cotizaci%C3%B3n">WhatsApp</a>
+</div>
+<div class="mt-3 flex flex-wrap gap-2 text-sm">
+<a class="px-3 py-1 rounded-full border border-white/25 hover:bg-white/10" href="#empresa">Quiénes somos</a>
+<a class="px-3 py-1 rounded-full border border-white/25 hover:bg-white/10" href="#politica">Política de calidad</a>
+</div>
+<div class="mt-6 flex flex-wrap items-center gap-4 text-sm txt-weak">
+<div class="flex items-center gap-2">🛡️ Protocolos y reportes auditables</div>
+<div class="flex items-center gap-2">📈 KPIs orientados al negocio</div>
+<div class="flex items-center gap-2">🏭 Atención nacional</div>
+</div>
+</div>
+<div class="relative rounded-3xl glass-dark p-0 ring-1 ring-white/10 overflow-hidden">
+<div class="relative" id="heroCarousel">
+<div class="slide active"><img alt="CBM" class="w-full h-[420px] object-cover aspect-[16/9] md:aspect-[16/10] object-cover w-full h-full aspect-[16/9] md:aspect-[16/10] object-cover w-full h-full" decoding="async" loading="lazy" src="https://www.tecnalisis.com/imagenes/mantenimiento_basado_en_la_condici%C3%B3n.jpg"/></div>
+<div class="slide"><img alt="Alta precisión" class="w-full h-[420px] object-cover" decoding="async" loading="lazy" src="https://www.tecnalisis.com/imagenes/ingenieria_de_alta_precision.jpg"/></div>
+<div class="slide"><img alt="Desarrollo" class="w-full h-[420px] object-cover" decoding="async" loading="lazy" src="https://www.tecnalisis.com/imagenes/ingenieria_de_desarrollo.jpg"/></div>
+<button aria-label="Anterior" class="prev">‹</button>
+<button aria-label="Siguiente" class="next">›</button>
+<div class="dots"></div>
+</div>
+<div class="p-4 md:p-6 bg-gradient-to-t from-black/50 to-transparent text-white text-sm">
+<div class="grid grid-cols-3 gap-3 text-center">
+<div class="rounded-xl border border-white/20 p-3"><div class="text-xl font-bold">&gt; 10%</div><div class="text-[11px] opacity-80">+ disponibilidad</div></div>
+<div class="rounded-xl border border-white/20 p-3"><div class="text-xl font-bold">-30%</div><div class="text-[11px] opacity-80">paradas imprevistas</div></div>
+<div class="rounded-xl border border-white/20 p-3"><div class="text-xl font-bold">3–6m</div><div class="text-[11px] opacity-80">retorno típico</div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
 <!-- Servicios -->
 <section class="py-16 sm:py-24" id="servicios">
 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
