@@ -208,7 +208,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <section id="heroSection" class="relative w-full overflow-hidden bg-slate-900 hero-vhfix">
   <!-- Fondo desenfocado (rellena sin recortes) -->
   <video
-    class="absolute inset-0 w-full h-full object-cover blur-xl scale-110 pointer-events-none"
+    class="absolute inset-0 w-full h-full object-cover blur-xl scale-110 pointer-events-none hidden md:block"
     autoplay muted loop playsinline preload="metadata" aria-hidden="true">
     <source src="VIDEOS/TECNALISIS%20SAS_PAGINA_WEB.mp4" type="video/mp4">
   </video>
@@ -216,11 +216,10 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   <!-- Poster IMG con el mismo sizing que el video principal -->
   <img src="imagenes/REFRIGERACION.jpg" alt=""
        class="absolute inset-0 w-full h-full object-contain object-center select-none pointer-events-none"
-       id="heroPoster">
+       id="heroPoster" class="absolute inset-0 w-full h-full object-contain md:object-cover object-center select-none pointer-events-none">
 
   <!-- Video principal -->
-  <video id="heroVideo"
-    class="absolute inset-0 w-full h-full object-contain object-center"
+  <video id="heroVideo" class="absolute inset-0 w-full h-full object-contain md:object-cover object-center"
     autoplay muted loop playsinline preload="metadata">
     <source src="VIDEOS/TECNALISIS%20SAS_PAGINA_WEB.mp4" type="video/mp4">
     Tu navegador no soporta video HTML5.
