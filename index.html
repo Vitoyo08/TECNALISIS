@@ -118,7 +118,36 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 @media (max-width: 1024px){
   .mobile-hide-link{ display:none !important; }
 }
-</style></head>
+</style>
+<style>
+/* Altura base en móviles: no ocupar 100% para evitar recortes */
+.hero-video { 
+  min-height: 420px; 
+  height: 65vh; 
+}
+
+/* Tablets vertical */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .hero-video { height: 80vh; }
+}
+
+/* Tablets horizontal */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .hero-video { height: 70vh; }
+}
+
+/* Escritorio */
+@media (min-width: 1024px) {
+  .hero-video { height: 80vh; }
+}
+
+/* Monitores muy anchos */
+@media (min-width: 1600px) {
+  .hero-video { height: 75vh; }
+}
+</style>
+
+</head>
 <body class="min-h-screen text-white"><a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 <!-- Header -->
 <header class="sticky top-0 z-40 border-b border-white/10 bg-slate-900/40 backdrop-blur transition-colors" id="mainHeader">
@@ -160,6 +189,23 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <a class="block" href="#contacto">Contacto</a>
 </nav>
 </header>
+
+<!-- Hero con video (mixto: contain en móvil, cover en escritorio) -->
+<section class="relative w-full overflow-hidden hero-video bg-slate-900">
+  <video
+    class="absolute inset-0 w-full h-full object-contain md:object-cover object-center"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    poster="imagenes/REFRIGERACION.jpg"
+  >
+    <source src="VIDEOS/TECNALISIS SAS_PAGINA_WEB.mp4" type="video/mp4">
+    Tu navegador no soporta video HTML5.
+  </video>
+</section>
+
 <!-- Hero -->
 <section class="relative">
 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 grid lg:grid-cols-2 gap-10 items-center">
@@ -188,7 +234,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 </div>
 <div class="relative rounded-3xl glass-dark p-0 ring-1 ring-white/10 overflow-hidden">
 <div class="relative" id="heroCarousel">
-<div class="slide active"><img alt="CBM" class="w-full h-[420px] object-cover aspect-[16/9] md:aspect-[16/10] object-cover w-full h-full" decoding="async" loading="lazy" src="https://www.tecnalisis.com/imagenes/mantenimiento_basado_en_la_condici%C3%B3n.jpg"/></div>
+<div class="slide active"><img alt="CBM" class="w-full h-[420px] object-cover aspect-[16/9] md:aspect-[16/10] object-cover w-full h-full aspect-[16/9] md:aspect-[16/10] object-cover w-full h-full" decoding="async" loading="lazy" src="https://www.tecnalisis.com/imagenes/mantenimiento_basado_en_la_condici%C3%B3n.jpg"/></div>
 <div class="slide"><img alt="Alta precisión" class="w-full h-[420px] object-cover" decoding="async" loading="lazy" src="https://www.tecnalisis.com/imagenes/ingenieria_de_alta_precision.jpg"/></div>
 <div class="slide"><img alt="Desarrollo" class="w-full h-[420px] object-cover" decoding="async" loading="lazy" src="https://www.tecnalisis.com/imagenes/ingenieria_de_desarrollo.jpg"/></div>
 <button aria-label="Anterior" class="prev">‹</button>
