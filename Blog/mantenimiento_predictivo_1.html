@@ -22,9 +22,7 @@
       min-height: 400px;
       color: #fff;
     }
-    .hero-content {
-      max-width: 50%;
-    }
+    .hero-content { max-width: 50%; }
     .hero-content span {
       background: #00aaff;
       color: #fff;
@@ -36,7 +34,7 @@
     .hero-content h1 {
       font-size: 3.25rem; /* 30% más grande */
       margin-bottom: 20px;
-      background: none; /* Quita recuadro */
+      background: none;
     }
     .hero-content ul { list-style:none; padding:0; font-size:1.2rem; }
     .hero-content li { margin:12px 0; }
@@ -60,10 +58,7 @@
     th, td { padding:10px; text-align:left; }
     th { background:#12222e; }
 
-    .social {
-      text-align:center;
-      margin-top:30px;
-    }
+    .social { text-align:center; margin-top:30px; }
     .social a {
       display:inline-block;
       padding:10px 20px;
@@ -71,6 +66,7 @@
       margin:5px;
       text-decoration:none;
       color:#fff;
+      font-weight:bold;
     }
     .social a.linkedin { background:#0077b5; }
     .social a.twitter { background:#1DA1F2; }
@@ -157,9 +153,23 @@
 
       <h3>📣 Conecta con tu comunidad</h3>
       <div class="social">
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.tusitio.com" target="_blank" class="linkedin">Compartir en LinkedIn</a>
-        <a href="https://twitter.com/intent/tweet?url=https://www.tusitio.com&text=Mantenimiento%20Predictivo%20Inteligente" target="_blank" class="twitter">Compartir en Twitter</a>
-        <a href="https://api.whatsapp.com/send?text=Mantenimiento%20Predictivo%20Inteligente%20https://www.tusitio.com" target="_blank" class="whatsapp">Compartir en WhatsApp</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.tecnalisis.com/blog/mantenimiento-predictivo_1&title=Mantenimiento%20Predictivo%20Inteligente"
+           onclick="window.open(this.href,'popUpLinkedIn','width=600,height=500,scrollbars=yes,resizable=yes'); return false;"
+           class="linkedin">
+          Compartir en LinkedIn
+        </a>
+
+        <a href="https://twitter.com/intent/tweet?text=Mantenimiento%20Predictivo%20Inteligente&url=https://www.tecnalisis.com/blog/mantenimiento-predictivo_1"
+           onclick="window.open(this.href,'popUpTwitter','width=600,height=400,scrollbars=yes,resizable=yes'); return false;"
+           class="twitter">
+          Compartir en Twitter
+        </a>
+
+        <a href="https://api.whatsapp.com/send?text=Mantenimiento%20Predictivo%20Inteligente%20https://www.tecnalisis.com/blog/mantenimiento-predictivo_1"
+           onclick="window.open(this.href,'popUpWhatsapp','width=500,height=600,scrollbars=yes,resizable=yes'); return false;"
+           class="whatsapp">
+          Compartir en WhatsApp
+        </a>
       </div>
     </section>
   </main>
