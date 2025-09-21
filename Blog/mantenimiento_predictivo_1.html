@@ -6,22 +6,29 @@
   <title>Mantenimiento Predictivo Inteligente | TECNALISIS SAS</title>
   <link rel="stylesheet" href="../estilos.css">
   <style>
-    body { background-color:#0b1c26; color:#fff; font-family: Arial, sans-serif; }
+    body { background-color:#0b1c26; color:#fff; font-family: Arial, sans-serif; margin:0; }
     header { display:flex; align-items:center; justify-content:space-between; padding:15px 30px; background:#0b1c26; }
     header img { height:45px; }
     nav a { color:#fff; margin:0 10px; text-decoration:none; }
     nav a:hover { text-decoration:underline; }
 
+    /* Hero con fondo */
     .hero {
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:60px 40px;
-      background:#0b1c26;
-      border-radius:8px;
-      min-height:340px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 80px 40px;
+      background: url("../imagenes/portada_blog_1.png") center/cover no-repeat;
+      min-height: 400px;
+      color: #fff;
     }
-    .hero-content { max-width:50%; }
+    .hero-content {
+      max-width: 50%;
+      background: rgba(0, 0, 0, 0.3); /* opcional: para resaltar el texto */
+      padding: 20px;
+      border-radius: 8px;
+    }
     .hero-content h1 { font-size:2.5rem; margin-bottom:20px; }
     .hero-content ul { list-style:none; padding:0; font-size:1.2rem; }
     .hero-content li { margin:12px 0; }
@@ -29,119 +36,159 @@
     section { padding:40px 20px; max-width:1000px; margin:auto; }
     h2 { margin-top:40px; color:#fff; }
 
-    img.responsive { width:100%; height:auto; border-radius:8px; margin:25px 0; }
+    img.responsive {
+      width:100%;
+      height:auto;
+      border-radius:8px;
+      margin:25px 0;
+    }
 
-    table { width:100%; border-collapse:collapse; margin-top:20px; }
-    table, th, td { border:1px solid #2c3e50; }
-    th, td { padding:10px; text-align:left; }
+    table {
+      width:100%;
+      border-collapse:collapse;
+      margin-top:20px;
+    }
+    table, th, td {
+      border:1px solid #2c3e50;
+    }
+    th, td {
+      padding:10px;
+      text-align:left;
+    }
     th { background:#12222e; }
     .social { text-align:center; margin-top:30px; }
-    .social a { display:inline-block; background:#0077b5; color:#fff; padding:10px 20px; border-radius:5px; margin:5px; text-decoration:none; }
+    .social a {
+      display:inline-block;
+      background:#0077b5;
+      color:#fff;
+      padding:10px 20px;
+      border-radius:5px;
+      margin:5px;
+      text-decoration:none;
+    }
     .social a.whatsapp { background:#25D366; }
     .social a.twitter { background:#1DA1F2; }
   </style>
 </head>
 <body>
 
-<header>
-  <img src="../imagenes/largo_blanco_tecnalisis.png" alt="Logo TECNALISIS SAS">
-  <nav>
-    <a href="../index.html">Servicios</a>
-    <a href="#">Industrias</a>
-    <a href="#">¿Por qué nosotros?</a>
-    <a href="#">Casos</a>
-    <a href="#">Política de calidad</a>
-    <a href="#" style="background:#00aaff;padding:8px 14px;border-radius:4px;color:#fff;">Solicitar propuesta</a>
-  </nav>
-</header>
+  <header>
+    <img src="../imagenes/largo_blanco_tecnalisis.png" alt="Logo TECNALISIS SAS">
+    <nav>
+      <a href="../index.html">Servicios</a>
+      <a href="#">Industrias</a>
+      <a href="#">¿Por qué nosotros?</a>
+      <a href="#">Casos</a>
+      <a href="#">Política de calidad</a>
+      <a href="#" style="background:#00aaff;padding:8px 14px;border-radius:4px;color:#fff;">Solicitar propuesta</a>
+    </nav>
+  </header>
 
-<main>
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content">
-      <span style="background:#00aaff;color:#fff;padding:4px 8px;border-radius:4px;font-size:0.9rem;">BLOG</span>
-      <h1>Mantenimiento Predictivo Inteligente</h1>
+  <main>
+    <!-- Hero con imagen de fondo -->
+    <section class="hero">
+      <div class="hero-content">
+        <span style="background:#00aaff;color:#fff;padding:4px 8px;border-radius:4px;font-size:0.9rem;">BLOG</span>
+        <h1>Mantenimiento Predictivo Inteligente</h1>
+        <ul>
+          <li>📍 ¿Qué es el mantenimiento predictivo?</li>
+          <li>📈 Beneficios clave</li>
+          <li>🧠 ¿Cómo funciona?</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contenido del blog -->
+    <section>
+      <h2>🔧 Blog: Mantenimiento Predictivo Inteligente</h2>
+      <h3>📌 ¿Qué es el Mantenimiento Predictivo?</h3>
+      <p>
+        El <strong>mantenimiento predictivo</strong> es una estrategia avanzada de gestión de activos que requiere
+        <strong>personal altamente calificado</strong>, el uso de <strong>equipos especializados</strong>, sensores cuidadosamente
+        seleccionados, análisis de datos y, actualmente, algoritmos de inteligencia artificial. Su objetivo es
+        <strong>identificar fallos incipientes</strong> antes de que se materialicen en paradas no planificadas o afecten la productividad.
+      </p>
+      <p>
+        A diferencia del <strong>mantenimiento correctivo</strong> (reparar tras la avería) o el
+        <strong>mantenimiento preventivo</strong> (intervenciones programadas por tiempo o uso), el predictivo se basa en
+        <em>evidencias reales del estado de los activos</em> obtenidas de variables como vibraciones, temperatura, presión,
+        corriente eléctrica o ruidos ultrasónicos, combinadas con análisis de datos y experiencia técnica.
+      </p>
+
+      <h3>📊 Beneficios clave</h3>
       <ul>
-        <li>📍 ¿Qué es el mantenimiento predictivo?</li>
-        <li>📈 Beneficios clave</li>
-        <li>🧠 ¿Cómo funciona?</li>
+        <li>Menos paradas inesperadas</li>
+        <li>Reducción de costos de reparación</li>
+        <li>Mayor vida útil de los equipos</li>
+        <li>Seguridad mejorada</li>
+        <li>Optimización de recursos</li>
       </ul>
-    </div>
-    <div>
-      <img src="../imagenes/portada_blog_1.png" alt="Robótica y panel de datos" class="responsive">
-    </div>
-  </section>
 
-  <section>
-    <h2>🔧 Blog: Mantenimiento Predictivo Inteligente</h2>
-    <h3>📌 ¿Qué es el Mantenimiento Predictivo?</h3>
-    <p>
-      El <strong>mantenimiento predictivo</strong> es una estrategia avanzada de gestión de activos que requiere
-      <strong>personal altamente calificado</strong>, el uso de <strong>equipos especializados</strong>, sensores cuidadosamente
-      seleccionados, análisis de datos y, actualmente, algoritmos de inteligencia artificial. Su objetivo es
-      <strong>identificar fallos incipientes</strong> antes de que se materialicen en paradas no planificadas o afecten la productividad.
-    </p>
-    <p>
-      A diferencia del <strong>mantenimiento correctivo</strong> o el <strong>mantenimiento preventivo</strong>,
-      el predictivo se basa en <em>evidencias reales del estado de los activos</em>.
-    </p>
+      <h3>🧠 ¿Cómo funciona?</h3>
+      <ol>
+        <li>Sensores recopilan datos como vibración y temperatura.</li>
+        <li>IA analiza patrones y detecta anomalías.</li>
+        <li>Alertas permiten intervenir justo a tiempo.</li>
+        <li>Dashboards muestran el estado de los equipos.</li>
+      </ol>
 
-    <h3>📊 Beneficios clave</h3>
-    <ul>
-      <li>Menos paradas inesperadas</li>
-      <li>Reducción de costos de reparación</li>
-      <li>Mayor vida útil de los equipos</li>
-      <li>Seguridad mejorada</li>
-      <li>Optimización de recursos</li>
-    </ul>
+      <h3>🤖 IA como asistente, no reemplazo</h3>
+      <p>
+        La <strong>inteligencia artificial</strong> se ha convertido en un aliado clave dentro del mantenimiento predictivo.
+        Su capacidad para procesar grandes volúmenes de datos en tiempo real, detectar patrones complejos y generar alertas tempranas
+        la convierten en un recurso indispensable para la gestión moderna de activos.
+      </p>
+      <p>
+        No obstante, su <em>máximo valor</em> emerge cuando trabaja en conjunto con el conocimiento de técnicos y analistas
+        especializados, quienes interpretan resultados, validan recomendaciones y toman decisiones estratégicas considerando
+        condiciones operativas, riesgos y prioridades del negocio. La IA ayuda a priorizar intervenciones, optimizar recursos y
+        reducir tiempos de respuesta; <strong>no sustituye</strong> la experiencia ni el criterio profesional.
+      </p>
 
-    <h3>🧠 ¿Cómo funciona?</h3>
-    <ol>
-      <li>Sensores recopilan datos como vibración y temperatura.</li>
-      <li>IA analiza patrones y detecta anomalías.</li>
-      <li>Alertas permiten intervenir justo a tiempo.</li>
-      <li>Dashboards muestran el estado de los equipos.</li>
-    </ol>
+      <img src="../imagenes/mtto_predictivo_blog_1.jpg" alt="Mantenimiento predictivo IA" class="responsive">
 
-    <h3>🤖 IA como asistente, no reemplazo</h3>
-    <p>
-      La <strong>inteligencia artificial</strong> se ha convertido en un aliado clave dentro del mantenimiento predictivo.
-      Procesa grandes volúmenes de datos en tiempo real, detecta patrones complejos y genera alertas tempranas.
-    </p>
-    <p>
-      No obstante, su <em>máximo valor</em> emerge cuando trabaja en conjunto con el conocimiento de técnicos y analistas
-      especializados.
-    </p>
+      <h3>💡 ¿Cómo se complementan?</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Inteligencia Artificial</th>
+            <th>Análisis Humano</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Detecta patrones invisibles</td>
+            <td>Interpreta el contexto operativo</td>
+          </tr>
+          <tr>
+            <td>Genera alertas en tiempo real</td>
+            <td>Decide cuándo y cómo intervenir</td>
+          </tr>
+          <tr>
+            <td>Optimiza recursos</td>
+            <td>Evalúa riesgos y prioridades</td>
+          </tr>
+          <tr>
+            <td>Aprende de datos históricos</td>
+            <td>Aplica experiencia técnica</td>
+          </tr>
+        </tbody>
+      </table>
 
-    <img src="../imagenes/mtto_predictivo_blog_1.jpg" alt="Mantenimiento predictivo IA" class="responsive">
+      <h3>📣 Conecta con tu comunidad</h3>
+      <ul>
+        <li>Comparte en LinkedIn y foros técnicos</li>
+        <li>Invita a expertos a colaborar</li>
+        <li>Ofrece boletines exclusivos</li>
+      </ul>
 
-    <h3>💡 ¿Cómo se complementan?</h3>
-    <table>
-      <thead>
-        <tr><th>Inteligencia Artificial</th><th>Análisis Humano</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Detecta patrones invisibles</td><td>Interpreta el contexto operativo</td></tr>
-        <tr><td>Genera alertas en tiempo real</td><td>Decide cuándo y cómo intervenir</td></tr>
-        <tr><td>Optimiza recursos</td><td>Evalúa riesgos y prioridades</td></tr>
-        <tr><td>Aprende de datos históricos</td><td>Aplica experiencia técnica</td></tr>
-      </tbody>
-    </table>
-
-    <h3>📣 Conecta con tu comunidad</h3>
-    <ul>
-      <li>Comparte en LinkedIn y foros técnicos</li>
-      <li>Invita a expertos a colaborar</li>
-      <li>Ofrece boletines exclusivos</li>
-    </ul>
-
-    <div class="social">
-      <a href="#" target="_blank">Compartir en LinkedIn</a>
-      <a href="#" target="_blank" class="twitter">Compartir en Twitter</a>
-      <a href="#" target="_blank" class="whatsapp">Compartir en WhatsApp</a>
-    </div>
-  </section>
-</main>
+      <div class="social">
+        <a href="#" target="_blank">Compartir en LinkedIn</a>
+        <a href="#" target="_blank" class="twitter">Compartir en Twitter</a>
+        <a href="#" target="_blank" class="whatsapp">Compartir en WhatsApp</a>
+      </div>
+    </section>
+  </main>
 
 </body>
 </html>
