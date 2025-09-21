@@ -6,74 +6,118 @@
   <title>Mantenimiento Predictivo Inteligente | TECNALISIS SAS</title>
   <link rel="stylesheet" href="../estilos.css">
   <style>
-    body { background-color:#0b1c26; color:#fff; font-family: Arial, sans-serif; margin:0; }
-    header { display:flex; align-items:center; justify-content:space-between; padding:15px 30px; background:#0b1c26; }
-    header img { height:45px; }
-    nav a { color:#fff; margin:0 10px; text-decoration:none; }
-    nav a:hover { text-decoration:underline; }
+    body {
+      background-color: #0b1c26;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      background: #0b1c26;
+    }
+    header img { height: 45px; }
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    nav a:hover { text-decoration: underline; }
 
     /* Hero con fondo */
     .hero {
-      position: relative;
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      padding: 80px 40px;
-      background: url("../imagenes/portada_blog_1.png") center/cover no-repeat;
-      min-height: 400px;
+      padding: 80px 60px;
+      background: url("imagenes/portada_blog_1.png") center/cover no-repeat;
+      min-height: 450px;
       color: #fff;
     }
     .hero-content {
       max-width: 50%;
-      background: rgba(0, 0, 0, 0.3); /* opcional: para resaltar el texto */
-      padding: 20px;
-      border-radius: 8px;
     }
-    .hero-content h1 { font-size:2.5rem; margin-bottom:20px; }
-    .hero-content ul { list-style:none; padding:0; font-size:1.2rem; }
-    .hero-content li { margin:12px 0; }
+    .hero-content span {
+      background: #00aaff;
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 1.35rem; /* 50% más grande */
+      font-weight: bold;
+    }
+    .hero-content h1 {
+      font-size: 3.25rem;  /* 30% más grande */
+      margin: 20px 0;
+      background: none;    /* Quita el recuadro */
+    }
+    .hero-content ul {
+      list-style: none;
+      padding: 0;
+      font-size: 1.2rem;
+    }
+    .hero-content li { margin: 12px 0; }
 
-    section { padding:40px 20px; max-width:1000px; margin:auto; }
-    h2 { margin-top:40px; color:#fff; }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 { margin-top: 40px; color: #fff; }
 
     img.responsive {
-      width:100%;
-      height:auto;
-      border-radius:8px;
-      margin:25px 0;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 25px 0;
     }
 
     table {
-      width:100%;
-      border-collapse:collapse;
-      margin-top:20px;
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
     }
-    table, th, td {
-      border:1px solid #2c3e50;
-    }
+    table, th, td { border: 1px solid #2c3e50; }
     th, td {
-      padding:10px;
-      text-align:left;
+      padding: 10px;
+      text-align: left;
     }
-    th { background:#12222e; }
-    .social { text-align:center; margin-top:30px; }
+    th { background: #12222e; }
+
+    .social {
+      text-align: center;
+      margin-top: 30px;
+    }
     .social a {
-      display:inline-block;
-      background:#0077b5;
-      color:#fff;
-      padding:10px 20px;
-      border-radius:5px;
-      margin:5px;
-      text-decoration:none;
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin: 5px;
+      text-decoration: none;
+      color: #fff;
     }
-    .social a.whatsapp { background:#25D366; }
-    .social a.twitter { background:#1DA1F2; }
+    .social a.linkedin { background: #0077b5; }
+    .social a.twitter { background: #1DA1F2; }
+    .social a.whatsapp { background: #25D366; }
+
+    footer {
+      background: #0b1c26;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.95rem;
+      color: #ccc;
+      margin-top: 40px;
+      width: 100%;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="../imagenes/largo_blanco_tecnalisis.png" alt="Logo TECNALISIS SAS">
+    <img src="imagenes/largo_blanco_tecnalisis.png" alt="Logo TECNALISIS SAS">
     <nav>
       <a href="../index.html">Servicios</a>
       <a href="#">Industrias</a>
@@ -85,10 +129,10 @@
   </header>
 
   <main>
-    <!-- Hero con imagen de fondo -->
+    <!-- Hero -->
     <section class="hero">
       <div class="hero-content">
-        <span style="background:#00aaff;color:#fff;padding:4px 8px;border-radius:4px;font-size:0.9rem;">BLOG</span>
+        <span>BLOG</span>
         <h1>Mantenimiento Predictivo Inteligente</h1>
         <ul>
           <li>📍 ¿Qué es el mantenimiento predictivo?</li>
@@ -98,7 +142,7 @@
       </div>
     </section>
 
-    <!-- Contenido del blog -->
+    <!-- Contenido -->
     <section>
       <h2>🔧 Blog: Mantenimiento Predictivo Inteligente</h2>
       <h3>📌 ¿Qué es el Mantenimiento Predictivo?</h3>
@@ -145,7 +189,7 @@
         reducir tiempos de respuesta; <strong>no sustituye</strong> la experiencia ni el criterio profesional.
       </p>
 
-      <img src="../imagenes/mtto_predictivo_blog_1.jpg" alt="Mantenimiento predictivo IA" class="responsive">
+      <img src="imagenes/mtto_predictivo_blog_1.jpg" alt="Mantenimiento predictivo IA" class="responsive">
 
       <h3>💡 ¿Cómo se complementan?</h3>
       <table>
@@ -183,12 +227,16 @@
       </ul>
 
       <div class="social">
-        <a href="#" target="_blank">Compartir en LinkedIn</a>
-        <a href="#" target="_blank" class="twitter">Compartir en Twitter</a>
-        <a href="#" target="_blank" class="whatsapp">Compartir en WhatsApp</a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.tusitio.com" target="_blank" class="linkedin">Compartir en LinkedIn</a>
+        <a href="https://twitter.com/intent/tweet?url=https://www.tusitio.com&text=Mantenimiento%20Predictivo%20Inteligente" target="_blank" class="twitter">Compartir en Twitter</a>
+        <a href="https://api.whatsapp.com/send?text=Mantenimiento%20Predictivo%20Inteligente%20https://www.tusitio.com" target="_blank" class="whatsapp">Compartir en WhatsApp</a>
       </div>
     </section>
   </main>
+
+  <footer>
+    © 2025 TECNALISIS S.A.S. Todos los derechos reservados.
+  </footer>
 
 </body>
 </html>
