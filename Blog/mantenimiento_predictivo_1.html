@@ -9,41 +9,34 @@
     body { background-color:#0b1c26; color:#fff; font-family: Arial, sans-serif; margin:0; }
     header { display:flex; align-items:center; justify-content:space-between; padding:15px 30px; background:#0b1c26; }
     header img { height:45px; }
-    nav a { color:#fff; margin:0 10px; text-decoration:none; font-size:1rem; }
+    nav a { color:#fff; margin:0 10px; text-decoration:none; }
     nav a:hover { text-decoration:underline; }
 
     .hero {
-      position:relative;
-      width:100%;
-      height:420px;
-      background:url("imagenes/portada_blog_1.png") center/cover no-repeat;
-      display:flex;
-      align-items:center;
-      padding:40px;
-      box-sizing:border-box;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 80px 40px;
+      background: url("../imagenes/portada_blog_1.png") center/cover no-repeat;
+      min-height: 400px;
+      color: #fff;
     }
-    .hero-content {
-      max-width:50%;
-    }
+    .hero-content { max-width: 50%; }
     .hero-content span {
-      background:#00aaff;
-      color:#fff;
-      padding:4px 8px;
-      border-radius:4px;
-      font-size:1.35rem;
-      font-weight:bold;
+      background: #00aaff;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 1.35rem;
+      font-weight: bold;
     }
     .hero-content h1 {
-      font-size:3.25rem;
-      margin:20px 0;
-      font-weight:bold;
-      background:none;
+      font-size: 3.25rem;
+      margin-bottom: 20px;
+      background: none;
     }
-    .hero-content ul {
-      list-style:none;
-      padding:0;
-      font-size:1.3rem;
-    }
+    .hero-content ul { list-style:none; padding:0; font-size:1.2rem; }
     .hero-content li { margin:12px 0; }
 
     section { padding:40px 20px; max-width:1000px; margin:auto; }
@@ -80,19 +73,20 @@
     .social a.whatsapp { background:#25D366; }
 
     footer {
-      background:#08151d;
+      background:#0b1c26;
       text-align:center;
-      padding:15px 0;
+      padding:20px;
       font-size:0.95rem;
-      margin-top:40px;
       color:#ccc;
+      margin-top:40px;
+      width:100%;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="imagenes/largo_blanco_tecnalisis.png" alt="Logo TECNALISIS SAS">
+    <img src="../imagenes/largo_blanco_tecnalisis.png" alt="Logo TECNALISIS SAS">
     <nav>
       <a href="https://www.tecnalisis.com/#servicios">Servicios</a>
       <a href="https://www.tecnalisis.com/#industrias">Industrias</a>
@@ -104,7 +98,6 @@
   </header>
 
   <main>
-    <!-- Hero -->
     <section class="hero">
       <div class="hero-content">
         <span>BLOG</span>
@@ -117,22 +110,11 @@
       </div>
     </section>
 
-    <!-- Contenido -->
     <section>
       <h2>🔧 Blog: Mantenimiento Predictivo Inteligente</h2>
       <h3>📌 ¿Qué es el Mantenimiento Predictivo?</h3>
-      <p>
-        El <strong>mantenimiento predictivo</strong> es una estrategia avanzada de gestión de activos que requiere
-        <strong>personal altamente calificado</strong>, el uso de <strong>equipos especializados</strong>, sensores cuidadosamente
-        seleccionados, análisis de datos y, actualmente, algoritmos de inteligencia artificial. Su objetivo es
-        <strong>identificar fallos incipientes</strong> antes de que se materialicen en paradas no planificadas o afecten la productividad.
-      </p>
-      <p>
-        A diferencia del <strong>mantenimiento correctivo</strong> (reparar tras la avería) o el
-        <strong>mantenimiento preventivo</strong> (intervenciones programadas por tiempo o uso), el predictivo se basa en
-        <em>evidencias reales del estado de los activos</em> obtenidas de variables como vibraciones, temperatura, presión,
-        corriente eléctrica o ruidos ultrasónicos, combinadas con análisis de datos y experiencia técnica.
-      </p>
+      <p>El <strong>mantenimiento predictivo</strong> es una estrategia avanzada...</p>
+      <p>A diferencia del <strong>mantenimiento correctivo</strong>...</p>
 
       <h3>📊 Beneficios clave</h3>
       <ul>
@@ -145,69 +127,49 @@
 
       <h3>🧠 ¿Cómo funciona?</h3>
       <ol>
-        <li>Sensores recopilan datos como vibración y temperatura.</li>
-        <li>IA analiza patrones y detecta anomalías.</li>
-        <li>Alertas permiten intervenir justo a tiempo.</li>
-        <li>Dashboards muestran el estado de los equipos.</li>
+        <li>Sensores recopilan datos...</li>
+        <li>IA analiza patrones...</li>
+        <li>Alertas permiten intervenir...</li>
+        <li>Dashboards muestran estado...</li>
       </ol>
 
-      <h3>🤖 IA como asistente, no reemplazo</h3>
-      <p>
-        La <strong>inteligencia artificial</strong> se ha convertido en un aliado clave dentro del mantenimiento predictivo.
-        Su capacidad para procesar grandes volúmenes de datos en tiempo real, detectar patrones complejos y generar alertas tempranas
-        la convierten en un recurso indispensable para la gestión moderna de activos.
-      </p>
-      <p>
-        No obstante, su <em>máximo valor</em> emerge cuando trabaja en conjunto con el conocimiento de técnicos y analistas
-        especializados, quienes interpretan resultados, validan recomendaciones y toman decisiones estratégicas considerando
-        condiciones operativas, riesgos y prioridades del negocio. La IA ayuda a priorizar intervenciones, optimizar recursos y
-        reducir tiempos de respuesta; <strong>no sustituye</strong> la experiencia ni el criterio profesional.
-      </p>
+      <h3>🤖 IA como asistente</h3>
+      <p>La inteligencia artificial se ha convertido en un aliado clave...</p>
 
-      <img src="imagenes/mtto_predictivo_blog_1.jpg" alt="Mantenimiento predictivo IA" class="responsive">
+      <img src="../imagenes/mtto_predictivo_blog_1.jpg" alt="Mantenimiento predictivo IA" class="responsive">
 
       <h3>💡 ¿Cómo se complementan?</h3>
       <table>
         <thead>
-          <tr>
-            <th>Inteligencia Artificial</th>
-            <th>Análisis Humano</th>
-          </tr>
+          <tr><th>Inteligencia Artificial</th><th>Análisis Humano</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Detecta patrones invisibles</td>
-            <td>Interpreta el contexto operativo</td>
-          </tr>
-          <tr>
-            <td>Genera alertas en tiempo real</td>
-            <td>Decide cuándo y cómo intervenir</td>
-          </tr>
-          <tr>
-            <td>Optimiza recursos</td>
-            <td>Evalúa riesgos y prioridades</td>
-          </tr>
-          <tr>
-            <td>Aprende de datos históricos</td>
-            <td>Aplica experiencia técnica</td>
-          </tr>
+          <tr><td>Detecta patrones invisibles</td><td>Interpreta el contexto operativo</td></tr>
+          <tr><td>Genera alertas en tiempo real</td><td>Decide cuándo intervenir</td></tr>
+          <tr><td>Optimiza recursos</td><td>Evalúa riesgos</td></tr>
+          <tr><td>Aprende de datos históricos</td><td>Aplica experiencia técnica</td></tr>
         </tbody>
       </table>
 
       <h3>📣 Conecta con tu comunidad</h3>
-      <ul>
-        <li>Comparte en LinkedIn y foros técnicos</li>
-        <li>Invita a expertos a colaborar</li>
-        <li>Ofrece boletines exclusivos</li>
-      </ul>
-
       <div class="social">
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.tecnalisis.com/Blog/mantenimiento_predictivo_1"
-           target="_blank" class="linkedin">Compartir en LinkedIn</a>
-        <a href="https://twitter.com/intent/tweet?url=https://www.tecnalisis.com/Blog/mantenimiento_predictivo_1&text=Mantenimiento%20Predictivo%20Inteligente"
-           target="_blank" class="twitter">Compartir en Twitter</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.tecnalisis.com/Blog/mantenimiento_predictivo_1&title=Mantenimiento%20Predictivo%20Inteligente"
+           onclick="window.open(this.href,'popUpLinkedIn','width=600,height=500,scrollbars=yes,resizable=yes'); return false;"
+           class="linkedin">
+          Compartir en LinkedIn
+        </a>
+
+        <a href="https://twitter.com/intent/tweet?text=Mantenimiento%20Predictivo%20Inteligente&url=https://www.tecnalisis.com/Blog/mantenimiento_predictivo_1"
+           onclick="window.open(this.href,'popUpTwitter','width=600,height=400,scrollbars=yes,resizable=yes'); return false;"
+           class="twitter">
+          Compartir en Twitter
+        </a>
+
         <a href="https://api.whatsapp.com/send?text=Mantenimiento%20Predictivo%20Inteligente%20https://www.tecnalisis.com/Blog/mantenimiento_predictivo_1"
-           target="_blank" class="whatsapp">Compartir en WhatsApp</a>
+           onclick="window.open(this.href,'popUpWhatsapp','width=500,height=600,scrollbars=yes,resizable=yes'); return false;"
+           class="whatsapp">
+          Compartir en WhatsApp
+        </a>
       </div>
     </section>
   </main>
