@@ -7,191 +7,319 @@
   <link rel="stylesheet" href="../estilos.css">
   <style>
     body { background-color:#0b1c26; color:#fff; font-family: Arial, sans-serif; margin:0; }
-    header {
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:15px 30px;
-      background:#0b1c26;
-      position:fixed;     /* <-- Fijo al hacer scroll */
-      top:0;
-      left:0;
-      width:100%;
-      z-index:1000;
-    }
+    header { display:flex; align-items:center; justify-content:space-between; padding:15px 30px; background:#0b1c26; }
     header img { height:60px; }
     nav a { color:#fff; margin:0 10px; text-decoration:none; }
     nav a:hover { text-decoration:underline; }
 
     .hero {
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 80px 40px;
-      background: url("../imagenes/portada_blog_1.png") center/cover no-repeat;
-      min-height: 400px;
-      color: #fff;
-      margin-top:100px;  /* <-- Compensa el header fijo */
+      background-image: url('../imagenes/mantenimiento_predictivo_banner.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 60px 20px;
+      text-align: center;
     }
-    .hero-content { max-width: 50%; }
-    .hero-content span {
-      background: #00aaff;
-      color: #fff;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-size: 1.35rem;
-      font-weight: bold;
-    }
-    .hero-content h1 {
-      font-size: 3.25rem;
-      margin-bottom: 20px;
-      background: none;
-    }
-    .hero-content ul { list-style:none; padding:0; font-size:1.2rem; }
-    .hero-content li { margin:12px 0; }
-
-    section { padding:40px 20px; max-width:1000px; margin:auto; }
-    h2 { margin-top:40px; color:#fff; }
-
-    img.responsive {
-      width:100%;
-      height:auto;
-      border-radius:8px;
-      margin:25px 0;
-    }
-
-    table {
-      width:100%;
-      border-collapse:collapse;
-      margin-top:20px;
-    }
-    table, th, td { border:1px solid #2c3e50; }
-    th, td { padding:10px; text-align:left; }
-    th { background:#12222e; }
-
-    .social { text-align:center; margin-top:30px; }
-    .social a {
+    .hero-content {
       display:inline-block;
-      padding:10px 20px;
-      border-radius:5px;
-      margin:5px;
-      text-decoration:none;
-      color:#fff;
-      font-weight:bold;
+      background: rgba(0,0,0,0.35);
+      padding: 20px 24px;
+      border-radius: 8px;
+      max-width: 900px;
     }
-    .social a.linkedin { background:#0077b5; }
-    .social a.twitter { background:#1DA1F2; }
-    .social a.whatsapp { background:#25D366; }
+    .hero h1 { font-size: 2.8rem; margin: 0 0 10px; }
+    .hero span { font-size: 1.1rem; color:#cde9ff; }
 
-    footer {
-      background:#0b1c26;
-      text-align:center;
-      padding:20px;
-      font-size:0.95rem;
-      color:#ccc;
-      margin-top:40px;
-      width:100%;
+    section { padding: 30px; margin: 0 auto; width: 100%; max-width: 1100px; }
+    section h2 { color:#00aaff; margin-top:0; }
+
+    .servicios { display:flex; gap:20px; flex-wrap:wrap; }
+    .servicio-card {
+      background:#102430; border:1px solid rgba(255,255,255,0.08);
+      border-radius:10px; padding:16px; flex:1 1 280px; min-width:260px;
     }
+    .servicio-card h3 { margin-top:0; }
+    .servicio-card p { margin-bottom:0; }
+
+    .tabla-wrapper { background:#0f202b; border-radius:10px; padding:16px; }
+    table { width:100%; border-collapse:collapse; }
+    th, td { padding:10px; border-bottom:1px solid rgba(255,255,255,0.08); text-align:left; }
+    th { color:#9fdcff; font-weight:600; }
+
+    .social { display:flex; gap:12px; flex-wrap:wrap; }
+    .social a {
+      display:inline-block; padding:10px 12px; border-radius:8px;
+      background:#0f2a38; border:1px solid rgba(255,255,255,0.08); color:#fff; text-decoration:none;
+    }
+    .social a:hover { background:#12394a; }
+
+    footer { text-align:center; padding:20px; color:#c8d6e5; background:#0b1c26; border-top:1px solid rgba(255,255,255,0.08); }
+
+  /* === Responsivo agregado (no altera estructura; solo estilos) === */
+  :root{
+    --header-bg:#0b1c26;
+    --accent:#00aaff;
+  }
+
+  /* Tipografía fluida y contenedores */
+  html{font-size:16px}
+  @media (max-width:1200px){ html{font-size:15px} }
+  @media (max-width:992px){ html{font-size:15px} }
+  @media (max-width:768px){ html{font-size:14px} }
+  @media (max-width:480px){ html{font-size:13.5px} }
+
+  /* Header: preparar espacio para botón hamburguesa */
+  header{
+    position:sticky; top:0; z-index:1000;
+    gap:12px; flex-wrap:nowrap;
+  }
+  header a img{ max-width: 100%; height:auto; }
+
+  /* Navegación base */
+  nav{
+    display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  nav a{
+    padding:8px 10px;
+  }
+
+  /* Hero: que el texto no quede tan estrecho en móviles */
+  .hero{
+    padding: clamp(40px, 8vw, 80px) clamp(16px, 5vw, 40px);
+    min-height: clamp(280px, 45vh, 520px);
+    background-position:center;
+  }
+  .hero-content{
+    max-width: min(680px, 90%);
+    backdrop-filter: none;
+  }
+  .hero-content h1{
+    font-size: clamp(1.8rem, 5vw, 3.25rem);
+    line-height:1.15;
+  }
+  .hero-content span{ font-size: clamp(0.95rem, 2.2vw, 1.35rem); }
+
+  /* Secciones y tablas responsivas */
+  section{ padding: clamp(24px, 4vw, 40px) clamp(16px, 4vw, 20px); width: min(100%, 1100px); }
+  table{ display:block; width:100%; overflow-x:auto; border-spacing:0; }
+  table thead, table tbody, table tr{ width:100%; }
+  th, td { white-space: nowrap; }
+  @media (max-width:640px){
+    th, td { padding:8px; }
+  }
+
+  /* Imágenes */
+  img.responsive{ width:100%; height:auto; }
+
+  /* Social buttons: que no se desborden */
+  .social a{ white-space:nowrap; }
+
+  /* Footer siempre legible en móviles */
+  footer{ padding:16px; }
+
+  /* ===== Menú hamburguesa (tablet y móvil) ===== */
+  .menu-toggle{
+    display:none;
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.25);
+    padding:8px 10px; border-radius:6px; cursor:pointer;
+    color:#fff;
+  }
+  .menu-toggle:focus{ outline:2px solid var(--accent); outline-offset:2px; }
+  .menu-bars{
+    display:inline-block; width:22px; height:2px; background:#fff; position:relative; vertical-align:middle;
+  }
+  .menu-bars::before, .menu-bars::after{
+    content:""; position:absolute; left:0; width:22px; height:2px; background:#fff;
+  }
+  .menu-bars::before{ top:-6px; }
+  .menu-bars::after{ top:6px; }
+
+  /* Estado abierto: animación simple */
+  .menu-toggle[aria-expanded="true"] .menu-bars{ background:transparent; }
+  .menu-toggle[aria-expanded="true"] .menu-bars::before{ transform:translateY(6px) rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] .menu-bars::after{ transform:translateY(-6px) rotate(-45deg); }
+
+  /* Layout para <= 992px: nav colapsa a panel */
+  @media (max-width: 992px){
+    nav{
+      position: fixed;
+      top: 64px; /* aprox. alto del header */
+      right: 0; left: 0;
+      background: var(--header-bg);
+      padding: 10px 16px;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 4px;
+      max-height: 0;
+      overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      transition: max-height .25s ease;
+    }
+    nav.open{ max-height: 70vh; }
+    nav a{
+      display:block;
+      padding: 12px 10px;
+      border-radius:6px;
+    }
+    nav a:hover{ background: rgba(255,255,255,0.06); text-decoration:none; }
+    /* Botón visible en móviles/tablets */
+    .menu-toggle{ display:inline-flex; align-items:center; gap:8px; }
+    header{ position:sticky; top:0; }
+    header{ padding:12px 16px; }
+    header > a{ flex: 1 1 auto; }
+  }
+
+  /* Pantallas muy pequeñas */
+  @media (max-width: 380px){
+    header img{ height:44px; }
+  }
   </style>
 </head>
+
 <body>
 
   <header>
-    <a href="https://www.tecnalisis.com">
-      <img src="../imagenes/largo_blanco_tecnalisis.png" alt="Logo TECNALISIS SAS">
+    <a href="#">
+      <img src="../imagenes/logo_tecnalisis.png" alt="TECNALISIS SAS - Logo">
     </a>
     <nav>
-      <a href="https://www.tecnalisis.com/#servicios">Servicios</a>
-      <a href="https://www.tecnalisis.com/#industrias">Industrias</a>
-      <a href="https://www.tecnalisis.com/#por-que">¿Por qué nosotros?</a>
-      <a href="https://www.tecnalisis.com/#casos">Casos</a>
-      <a href="https://www.tecnalisis.com/#politica">Política de calidad</a>
-      <a href="https://www.tecnalisis.com/#contacto"
-         style="background:#00aaff;padding:8px 14px;border-radius:4px;color:#fff;">Solicitar propuesta</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#beneficios">Beneficios</a>
+      <a href="#metodologia">Metodología</a>
+      <a href="#contacto">Contacto</a>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <span>BLOG</span>
-        <h1>Mantenimiento Predictivo Inteligente</h1>
-        <ul>
-          <li>📍 ¿Qué es el mantenimiento predictivo?</li>
-          <li>📈 Beneficios clave</li>
-          <li>🧠 ¿Cómo funciona?</li>
-        </ul>
+  <section class="hero" aria-label="Mantenimiento predictivo">
+    <div class="hero-content">
+      <h1>Mantenimiento Predictivo Inteligente</h1>
+      <span>Diagnósticos precisos, decisiones ágiles y continuidad operativa.</span>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <h2>Servicios de Monitoreo</h2>
+    <div class="servicios">
+      <div class="servicio-card">
+        <h3>Análisis de Vibraciones</h3>
+        <p>Detecta desbalances, desalineaciones, fallas de rodamientos y cavitación.</p>
       </div>
-    </section>
+      <div class="servicio-card">
+        <h3>Ultrasonido Industrial</h3>
+        <p>Localiza fugas, descargas eléctricas y problemas de lubricación.</p>
+      </div>
+      <div class="servicio-card">
+        <h3>Termografía</h3>
+        <p>Identifica puntos calientes en tableros, motores y líneas críticas.</p>
+      </div>
+    </div>
+  </section>
 
-    <section>
-      <h2>🔧 Blog: Mantenimiento Predictivo Inteligente</h2>
-      <h3>📌 ¿Qué es el Mantenimiento Predictivo?</h3>
-      <p>El <strong>mantenimiento predictivo</strong> es una estrategia avanzada...</p>
-      <p>A diferencia del <strong>mantenimiento correctivo</strong>...</p>
-
-      <h3>📊 Beneficios clave</h3>
-      <ul>
-        <li>Menos paradas inesperadas</li>
-        <li>Reducción de costos de reparación</li>
-        <li>Mayor vida útil de los equipos</li>
-        <li>Seguridad mejorada</li>
-        <li>Optimización de recursos</li>
-      </ul>
-
-      <h3>🧠 ¿Cómo funciona?</h3>
-      <ol>
-        <li>Sensores recopilan datos...</li>
-        <li>IA analiza patrones...</li>
-        <li>Alertas permiten intervenir...</li>
-        <li>Dashboards muestran estado...</li>
-      </ol>
-
-      <h3>🤖 IA como asistente</h3>
-      <p>La inteligencia artificial se ha convertido en un aliado clave...</p>
-
-      <img src="../imagenes/mtto_predictivo_blog_1.jpg" alt="Mantenimiento predictivo IA" class="responsive">
-
-      <h3>💡 ¿Cómo se complementan?</h3>
+  <section id="beneficios">
+    <h2>Beneficios para su Operación</h2>
+    <div class="tabla-wrapper">
       <table>
         <thead>
-          <tr><th>Inteligencia Artificial</th><th>Análisis Humano</th></tr>
+          <tr>
+            <th>Beneficio</th>
+            <th>Impacto</th>
+            <th>Indicador</th>
+          </tr>
         </thead>
         <tbody>
-          <tr><td>Detecta patrones invisibles</td><td>Interpreta el contexto operativo</td></tr>
-          <tr><td>Genera alertas en tiempo real</td><td>Decide cuándo intervenir</td></tr>
-          <tr><td>Optimiza recursos</td><td>Evalúa riesgos</td></tr>
-          <tr><td>Aprende de datos históricos</td><td>Aplica experiencia técnica</td></tr>
+          <tr>
+            <td>Reducción de paradas</td>
+            <td>+ Disponibilidad</td>
+            <td>MTBF</td>
+          </tr>
+          <tr>
+            <td>Menos costos imprevistos</td>
+            <td>– Emergencias</td>
+            <td>OPEX</td>
+          </tr>
+          <tr>
+            <td>Vida útil extendida</td>
+            <td>– Repuestos</td>
+            <td>Capex deferido</td>
+          </tr>
         </tbody>
       </table>
+    </div>
+  </section>
 
-      <h3>📣 Conecta con tu comunidad</h3>
-      <div class="social">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.tecnalisis.com/Blog/mantenimiento_predictivo_1&title=Mantenimiento%20Predictivo%20Inteligente"
-           onclick="window.open(this.href,'popUpLinkedIn','width=600,height=500,scrollbars=yes,resizable=yes'); return false;"
-           class="linkedin">
-          Compartir en LinkedIn
-        </a>
+  <section id="metodologia">
+    <h2>Metodología</h2>
+    <p>Plan de rutas, medición, análisis, diagnóstico, recomendación y verificación post-mantenimiento.</p>
+    <div class="social">
+      <a href="#">WhatsApp</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Correo</a>
+    </div>
+  </section>
 
-        <a href="https://twitter.com/intent/tweet?text=Mantenimiento%20Predictivo%20Inteligente&url=https://www.tecnalisis.com/Blog/mantenimiento_predictivo_1"
-           onclick="window.open(this.href,'popUpTwitter','width=600,height=400,scrollbars=yes,resizable=yes'); return false;"
-           class="twitter">
-          Compartir en Twitter
-        </a>
-
-        <a href="https://api.whatsapp.com/send?text=Mantenimiento%20Predictivo%20Inteligente%20https://www.tecnalisis.com/Blog/mantenimiento_predictivo_1"
-           onclick="window.open(this.href,'popUpWhatsapp','width=500,height=600,scrollbars=yes,resizable=yes'); return false;"
-           class="whatsapp">
-          Compartir en WhatsApp
-        </a>
-      </div>
-    </section>
-  </main>
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>TECNALISIS SAS • soporte@tecnalisis.com • +57 000 000 0000</p>
+  </section>
 
   <footer>
-    © 2025 TECNALISIS S.A.S. Todos los derechos reservados.
+    © TECNALISIS SAS — Mantenimiento Predictivo Inteligente
   </footer>
+
+  <!-- JS agregado para menú hamburguesa y mejoras de accesibilidad -->
+  <script>
+  (function(){
+    try{
+      var header = document.querySelector('header');
+      var nav = document.querySelector('header nav');
+      if(!header || !nav) return;
+
+      // Crear botón hamburguesa sin modificar el HTML original
+      var btn = document.createElement('button');
+      btn.className = 'menu-toggle';
+      btn.setAttribute('type','button');
+      btn.setAttribute('aria-label','Abrir menú de navegación');
+      btn.setAttribute('aria-controls','site-nav');
+      btn.setAttribute('aria-expanded','false');
+      btn.innerHTML = '<span class="menu-bars" aria-hidden="true"></span> Menú';
+
+      // Asegurar id en nav para aria-controls
+      if(!nav.id){ nav.id = 'site-nav'; }
+
+      // Insertar botón antes del nav (al final del header, justo antes de nav)
+      header.insertBefore(btn, nav);
+
+      // Toggle
+      function toggleNav(force){
+        var willOpen = typeof force === 'boolean' ? force : !nav.classList.contains('open');
+        nav.classList.toggle('open', willOpen);
+        btn.setAttribute('aria-expanded', willOpen ? 'true':'false');
+        document.body.style.overflow = (willOpen && window.matchMedia('(max-width: 992px)').matches) ? 'hidden' : '';
+      }
+
+      btn.addEventListener('click', function(){ toggleNav(); });
+
+      // Cerrar con ESC
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape'){ toggleNav(false); }
+      });
+
+      // Cerrar al cambiar ancho a escritorio
+      var mq = window.matchMedia('(min-width: 993px)');
+      mq.addEventListener('change', function(e){
+        if(e.matches){ toggleNav(false); }
+      });
+
+      // Cerrar al hacer click en un enlace
+      nav.addEventListener('click', function(e){
+        if(e.target.tagName === 'A'){ toggleNav(false); }
+      });
+    }catch(err){
+      console && console.warn && console.warn('Menu script error:', err);
+    }
+  })();
+  </script>
 
 </body>
 </html>
