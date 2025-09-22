@@ -18,18 +18,16 @@
     header {
       display:flex; align-items:center; justify-content:space-between;
       padding:15px 30px; background:#0b1c26;
-      position: sticky; top: 0; z-index: 1000;  /* <--- fija el header al hacer scroll */
-      /* (opcional) sutil sombra para separar del contenido al hacer scroll */
+      position: sticky; top: 0; z-index: 1000;
       box-shadow: 0 0 0 rgba(0,0,0,0);
     }
-    /* Sombra solo cuando el documento ha sido scrolleado un poco (opcional, no rompe nada) */
     @supports (selector(:has(*))) {
       body:has(main :is(section,div,article):nth-child(1)) header {
         box-shadow: 0 2px 8px rgba(0,0,0,.15);
       }
     }
 
-    /* Logo fijo a 60px de alto */
+    /* Logo 60px */
     header img { height:60px !important; width:auto !important; max-height:60px !important; }
 
     nav a { color:#fff; margin:0 10px; text-decoration:none; }
@@ -58,6 +56,9 @@
       font-size: 3.25rem;
       margin-bottom: 20px;
       background: none;
+      line-height: 1.1;
+      word-break: normal;
+      overflow-wrap: anywhere; /* por si hay palabras muy largas */
     }
     .hero-content ul { list-style:none; padding:0; font-size:1.2rem; }
     .hero-content li { margin:12px 0; }
@@ -105,18 +106,14 @@
       width:100%;
     }
 
-    /* ====== Agregado mínimo para menú hamburguesa en móvil/tablet ====== */
-
-    /* Botón hamburguesa (creado por JS) */
+    /* ====== Menú hamburguesa en móvil/tablet ====== */
     .menu-toggle{
       display:none;
       background:transparent;
       border:1px solid rgba(255,255,255,0.25);
       padding:8px 10px;
       border-radius:6px;
-      color:#fff;
-      cursor:pointer;
-      font:inherit;
+      color:#fff; cursor:pointer; font:inherit;
     }
     .menu-toggle:focus{ outline:2px solid #00aaff; outline-offset:2px; }
     .menu-bars{
@@ -131,11 +128,8 @@
     .menu-toggle[aria-expanded="true"] .menu-bars::before{ transform:translateY(6px) rotate(45deg); }
     .menu-toggle[aria-expanded="true"] .menu-bars::after{ transform:translateY(-6px) rotate(-45deg); }
 
-    /* Solo en ≤992px colapsamos la nav; en desktop NO se toca */
     @media (max-width: 992px){
       .menu-toggle{ display:inline-flex; align-items:center; gap:8px; }
-
-      /* El panel del menú se posiciona justo debajo de la altura real del header */
       header nav{
         position: fixed;
         top: var(--header-h);
@@ -143,33 +137,47 @@
         background: var(--header-bg);
         padding:10px 16px;
         display:flex; flex-direction:column; align-items:stretch; gap:4px;
-        max-height:0;
-        overflow:hidden;
+        max-height:0; overflow:hidden;
         border-top:1px solid rgba(255,255,255,0.08);
         transition:max-height .25s ease;
-        pointer-events: none;   /* no tapa nada cuando está cerrado */
-        z-index: 999;
+        pointer-events: none; z-index: 999;
       }
-      header nav.open{
-        max-height:70vh;
-        pointer-events: auto;
-      }
-      header nav a{
-        display:block; padding:12px 10px; border-radius:6px;
-      }
+      header nav.open{ max-height:70vh; pointer-events:auto; }
+      header nav a{ display:block; padding:12px 10px; border-radius:6px; }
       header nav a:hover{ background: rgba(255,255,255,0.06); text-decoration:none; }
     }
 
-    /* ====== NUEVO: justificar TODO el contenido textual de main ====== */
-    main p,
-    main li,
-    main td,
-    main th {
+    /* ====== AJUSTE SOLO PARA CELULAR: que nada se corte en el hero ====== */
+    @media (max-width: 640px){
+      .hero{
+        padding: 56px 16px 32px;     /* más margen lateral */
+        min-height: auto;            /* evita altura forzada */
+        background-position: center; /* seguro */
+      }
+      .hero-content{
+        max-width: 100%;             /* usa todo el ancho disponible */
+      }
+      .hero-content span{
+        font-size: clamp(0.85rem, 3.5vw, 1.05rem);
+      }
+      .hero-content h1{
+        font-size: clamp(1.6rem, 10vw, 2.4rem); /* escala en móvil */
+        line-height: 1.15;
+        letter-spacing: 0;
+        word-break: normal;
+        overflow-wrap: anywhere;
+        margin-bottom: 12px;
+      }
+      .hero-content ul{
+        font-size: clamp(0.95rem, 4vw, 1.1rem);
+      }
+    }
+
+    /* ====== Justificar TODO el contenido textual de main (como pediste antes) ====== */
+    main p, main li, main td, main th{
       text-align: justify;
       text-justify: inter-word;
-      hyphens: auto;
-      -webkit-hyphens: auto;
-      -ms-hyphens: auto;
+      hyphens: auto; -webkit-hyphens: auto; -ms-hyphens: auto;
     }
   </style>
 </head>
@@ -205,11 +213,11 @@
     <section>
       <h2>🔧 Blog: Mantenimiento Predictivo Inteligente</h2>
       <h3>📌 ¿Qué es el Mantenimiento Predictivo?</h3>
-      <p>El <strong>mantenimiento predictivo</strong> es una estrategia avanzada de gestión de activos que requiere personal altamente calificado, el uso de equipos especializados, sensores cuidadosamente seleccionados, análisis de datos y, en la actualidad, algoritmos de inteligencia artificial. Todo ello permite identificar fallos incipientes en equipos industriales antes de que se materialicen en paradas no planificadas o afecten la productividad.
+      <p>El <strong>mantenimiento predictivo</strong> es una estrategia avanzada de gestión de activos que requiere personal altamente calificado, el uso de equipos especializados, sensores cuidadosamente seleccionados, análisis de datos y, en la actualidad, algoritmos de inteligencia artificial. Todo ello permite identificar fallos incipientes en equipos industriales antes de que se materialicen en paradas no planificadas o afecten la productividad.</p>
 
-<p>A diferencia del mantenimiento correctivo (reparar tras la avería) o el mantenimiento preventivo (intervenciones programadas por tiempo o uso), el mantenimiento predictivo se basa en evidencias reales del estado de los activos. Su enfoque combina la medición continua de variables como vibraciones, temperatura, presión, corriente eléctrica o ruidos ultrasónicos, con el análisis avanzado de datos y la experiencia de técnicos especializados, garantizando decisiones oportunas y fundamentadas.
+      <p>A diferencia del mantenimiento correctivo (reparar tras la avería) o el mantenimiento preventivo (intervenciones programadas por tiempo o uso), el mantenimiento predictivo se basa en evidencias reales del estado de los activos. Su enfoque combina la medición continua de variables como vibraciones, temperatura, presión, corriente eléctrica o ruidos ultrasónicos, con el análisis avanzado de datos y la experiencia de técnicos especializados, garantizando decisiones oportunas y fundamentadas.</p>
 
-  <p>Esta metodología reduce los tiempos de inactividad, optimiza los costos de operación, prolonga la vida útil de los equipos y eleva los niveles de confiabilidad y seguridad en los procesos productivos.</p>
+      <p>Esta metodología reduce los tiempos de inactividad, optimiza los costos de operación, prolonga la vida útil de los equipos y eleva los niveles de confiabilidad y seguridad en los procesos productivos.</p>
 
       <h3>📊 Beneficios clave</h3>
       <ul>
@@ -229,7 +237,7 @@
       </ol>
 
       <h3>🤖 IA como asistente</h3>
-      <p>La inteligencia artificial se ha convertido en un aliado clave dentro del mantenimiento predictivo. Su capacidad para procesar grandes volúmenes de datos en tiempo real, detectar patrones complejos y generar alertas tempranas la convierte en un recurso indispensable para la gestión moderna de activos.
+      <p>La inteligencia artificial se ha convertido en un aliado clave dentro del mantenimiento predictivo. Su capacidad para procesar grandes volúmenes de datos en tiempo real, detectar patrones complejos y generar alertas tempranas la convierte en un recurso indispensable para la gestión moderna de activos.</p>
       <p>No obstante, su máximo valor emerge cuando trabaja en conjunto con el conocimiento de técnicos y analistas especializados, quienes interpretan resultados, validan recomendaciones y toman decisiones estratégicas considerando condiciones operativas, riesgos y prioridades del negocio. La IA ayuda a priorizar intervenciones, optimizar recursos y reducir tiempos de respuesta; no sustituye la experiencia ni el criterio profesional.</p>
 
       <img src="../imagenes/mtto_predictivo_blog_1.jpg" alt="Mantenimiento predictivo IA" class="responsive">
@@ -295,18 +303,13 @@
       btn.setAttribute('aria-expanded','false');
       btn.innerHTML = '<span class="menu-bars" aria-hidden="true"></span> Menú';
 
-      // Asegurar id en nav para accesibilidad
       if(!nav.id){ nav.id = 'site-nav'; }
-
-      // Insertar botón antes del nav (dentro del header)
       header.insertBefore(btn, nav);
 
-      // Toggle seguro (no tapa nada cuando está cerrado)
       function toggleNav(force){
         var willOpen = typeof force === 'boolean' ? force : !nav.classList.contains('open');
         nav.classList.toggle('open', willOpen);
         btn.setAttribute('aria-expanded', willOpen ? 'true':'false');
-        // Bloquea scroll de fondo sólo cuando está abierto en móvil
         document.body.style.overflow = (willOpen && window.matchMedia('(max-width: 992px)').matches) ? 'hidden' : '';
       }
 
@@ -316,7 +319,7 @@
       var mq = window.matchMedia('(min-width: 993px)');
       if(mq && mq.addEventListener){
         mq.addEventListener('change', function(e){ if(e.matches){ toggleNav(false); } });
-      }else if(mq && mq.addListener){ // Safari viejo
+      }else if(mq && mq.addListener){
         mq.addListener(function(e){ if(e.matches){ toggleNav(false); } });
       }
 
@@ -331,4 +334,3 @@
 
 </body>
 </html>
-
