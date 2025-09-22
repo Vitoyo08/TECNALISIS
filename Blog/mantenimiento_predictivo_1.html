@@ -6,9 +6,32 @@
   <title>Mantenimiento Predictivo Inteligente | TECNALISIS SAS</title>
   <link rel="stylesheet" href="../estilos.css">
   <style>
+    /* Altura de referencia del header para móviles (ajústala si cambias padding) */
+    :root{
+      --header-bg:#0b1c26;
+      --header-h: 90px; /* ~ 60px de logo + paddings */
+    }
+
     body { background-color:#0b1c26; color:#fff; font-family: Arial, sans-serif; margin:0; }
-    header { display:flex; align-items:center; justify-content:space-between; padding:15px 30px; background:#0b1c26; }
-    header img { height:60px !important; width:auto !important; max-height:60px !important; } /* <- logo fijo */
+
+    /* Header fijo (sticky) y por encima del contenido */
+    header {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:15px 30px; background:#0b1c26;
+      position: sticky; top: 0; z-index: 1000;  /* <--- fija el header al hacer scroll */
+      /* (opcional) sutil sombra para separar del contenido al hacer scroll */
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+    /* Sombra solo cuando el documento ha sido scrolleado un poco (opcional, no rompe nada) */
+    @supports (selector(:has(*))) {
+      body:has(main :is(section,div,article):nth-child(1)) header {
+        box-shadow: 0 2px 8px rgba(0,0,0,.15);
+      }
+    }
+
+    /* Logo fijo a 60px de alto */
+    header img { height:60px !important; width:auto !important; max-height:60px !important; }
+
     nav a { color:#fff; margin:0 10px; text-decoration:none; }
     nav a:hover { text-decoration:underline; }
 
@@ -83,7 +106,6 @@
     }
 
     /* ====== Agregado mínimo para menú hamburguesa en móvil/tablet ====== */
-    :root{ --header-bg:#0b1c26; }
 
     /* Botón hamburguesa (creado por JS) */
     .menu-toggle{
@@ -111,13 +133,13 @@
 
     /* Solo en ≤992px colapsamos la nav; en desktop NO se toca */
     @media (max-width: 992px){
-      /* Mostramos botón */
       .menu-toggle{ display:inline-flex; align-items:center; gap:8px; }
 
-      /* Nav como panel; cuando está cerrada NO intercepta clics */
+      /* El panel del menú se posiciona justo debajo de la altura real del header */
       header nav{
         position: fixed;
-        top:64px; left:0; right:0;
+        top: var(--header-h);
+        left:0; right:0;
         background: var(--header-bg);
         padding:10px 16px;
         display:flex; flex-direction:column; align-items:stretch; gap:4px;
@@ -125,12 +147,12 @@
         overflow:hidden;
         border-top:1px solid rgba(255,255,255,0.08);
         transition:max-height .25s ease;
-        pointer-events: none;         /* <-- clave para no tapar enlaces */
-        z-index: 999;                 /* visible solo cuando se abre */
+        pointer-events: none;   /* no tapa nada cuando está cerrado */
+        z-index: 999;
       }
       header nav.open{
         max-height:70vh;
-        pointer-events: auto;         /* <-- se habilitan clics al abrir */
+        pointer-events: auto;
       }
       header nav a{
         display:block; padding:12px 10px; border-radius:6px;
@@ -142,9 +164,9 @@
 <body>
 
   <header>
-  <a href="https://www.tecnalisis.com">
-    <img src="../imagenes/largo_blanco_tecnalisis.png" alt="Logo TECNALISIS SAS">
-  </a>
+    <a href="https://www.tecnalisis.com">
+      <img src="../imagenes/largo_blanco_tecnalisis.png" alt="Logo TECNALISIS SAS">
+    </a>
     <nav>
       <a href="https://www.tecnalisis.com/#servicios">Servicios</a>
       <a href="https://www.tecnalisis.com/#industrias">Industrias</a>
@@ -293,4 +315,3 @@
 
 </body>
 </html>
-
