@@ -18,7 +18,15 @@
     header {
       display:flex; align-items:center; justify-content:space-between;
       padding:15px 30px; background:#0b1c26;
-      position: sticky; top: 0; z-index: 1000;  /* fijo al hacer scroll */
+      position: sticky; top: 0; z-index: 1000;  /* <--- fija el header al hacer scroll */
+      /* (opcional) sutil sombra para separar del contenido al hacer scroll */
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+    /* Sombra solo cuando el documento ha sido scrolleado un poco (opcional, no rompe nada) */
+    @supports (selector(:has(*))) {
+      body:has(main :is(section,div,article):nth-child(1)) header {
+        box-shadow: 0 2px 8px rgba(0,0,0,.15);
+      }
     }
 
     /* Logo fijo a 60px de alto */
@@ -97,7 +105,7 @@
       width:100%;
     }
 
-    /* ====== Menú hamburguesa en móvil/tablet (no toca desktop) ====== */
+    /* ====== Agregado mínimo para menú hamburguesa en móvil/tablet ====== */
 
     /* Botón hamburguesa (creado por JS) */
     .menu-toggle{
@@ -127,7 +135,7 @@
     @media (max-width: 992px){
       .menu-toggle{ display:inline-flex; align-items:center; gap:8px; }
 
-      /* Panel del menú justo debajo del header fijo */
+      /* El panel del menú se posiciona justo debajo de la altura real del header */
       header nav{
         position: fixed;
         top: var(--header-h);
@@ -152,8 +160,11 @@
       header nav a:hover{ background: rgba(255,255,255,0.06); text-decoration:none; }
     }
 
-    /* ====== SOLO LA PARTE COMPARTIDA: justificar párrafos de la 2ª sección ====== */
-    main > section:nth-of-type(2) p {
+    /* ====== NUEVO: justificar TODO el contenido textual de main ====== */
+    main p,
+    main li,
+    main td,
+    main th {
       text-align: justify;
       text-justify: inter-word;
       hyphens: auto;
@@ -194,8 +205,11 @@
     <section>
       <h2>🔧 Blog: Mantenimiento Predictivo Inteligente</h2>
       <h3>📌 ¿Qué es el Mantenimiento Predictivo?</h3>
-      <p>El <strong>mantenimiento predictivo</strong> es una estrategia avanzada...</p>
-      <p>A diferencia del <strong>mantenimiento correctivo</strong>...</p>
+      <p>El <strong>mantenimiento predictivo</strong> es una estrategia avanzada de gestión de activos que requiere personal altamente calificado, el uso de equipos especializados, sensores cuidadosamente seleccionados, análisis de datos y, en la actualidad, algoritmos de inteligencia artificial. Todo ello permite identificar fallos incipientes en equipos industriales antes de que se materialicen en paradas no planificadas o afecten la productividad.
+
+<p>A diferencia del mantenimiento correctivo (reparar tras la avería) o el mantenimiento preventivo (intervenciones programadas por tiempo o uso), el mantenimiento predictivo se basa en evidencias reales del estado de los activos. Su enfoque combina la medición continua de variables como vibraciones, temperatura, presión, corriente eléctrica o ruidos ultrasónicos, con el análisis avanzado de datos y la experiencia de técnicos especializados, garantizando decisiones oportunas y fundamentadas.
+
+  <p>Esta metodología reduce los tiempos de inactividad, optimiza los costos de operación, prolonga la vida útil de los equipos y eleva los niveles de confiabilidad y seguridad en los procesos productivos.</p></p>
 
       <h3>📊 Beneficios clave</h3>
       <ul>
