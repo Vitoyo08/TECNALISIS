@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La importancia de los Dashboards en la Gestión de Mantenimiento</title>
+  <link rel="stylesheet" href="../estilos.css">
+  <style>
+    /* Altura de referencia del header para móviles (ajústala si cambias padding) */
+    :root{
+      --header-bg:#0b1c26;
+      --header-h: 90px; /* ~ 60px de logo + paddings */
+    }
+
+    body { background-color:#0b1c26; color:#fff; font-family: Arial, sans-serif; margin:0; }
+
+    /* Header fijo (sticky) y por encima del contenido */
+    header {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:15px 30px; background:#0b1c26;
+      position: sticky; top: 0; z-index: 1000;
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+    @supports (selector(:has(*))) {
+      body:has(main :is(section,div,article):nth-child(1)) header {
+        box-shadow: 0 2px 8px rgba(0,0,0,.15);
+      }
+    }
+
+    /* Logo 60px */
+    header img { height:60px !important; width:auto !important; max-height:60px !important; }
+
+    nav a { color:#fff; margin:0 10px; text-decoration:none; }
+    nav a:hover { text-decoration:underline; }
+
+    .hero {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 80px 40px;
+      background: url("../imagenes/portada_blog_1.png") center/cover no-repeat;
+      min-height: 400px;
+      color: #fff;
+    }
+    .hero-content { max-width: 50%; }
+    .hero-content span {
+      background: #00aaff;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 1.35rem;
+      font-weight: bold;
+    }
+    .hero-content h1 {
+      font-size: 3.25rem;
+      margin-bottom: 20px;
+      background: none;
+      line-height: 1.1;
+      word-break: normal;
+      overflow-wrap: anywhere; /* por si hay palabras muy largas */
+    }
+    .hero-content ul { list-style:none; padding:0; font-size:1.2rem; }
+    .hero-content li { margin:12px 0; }
+
+    section { padding:40px 20px; max-width:1000px; margin:auto; }
+    h2 { margin-top:40px; color:#fff; }
+
+    img.responsive {
+      width:100%;
+      height:auto;
+      border-radius:8px;
+      margin:25px 0;
+    }
+
+    table {
+      width:100%;
+      border-collapse:collapse;
+      margin-top:20px;
+    }
+    table, th, td { border:1px solid #2c3e50; }
+    th, td { padding:10px; text-align:left; }
+    th { background:#12222e; }
+
+    .social { text-align:center; margin-top:30px; }
+    .social a {
+      display:inline-block;
+      padding:10px 20px;
+      border-radius:5px;
+      margin:5px;
+      text-decoration:none;
+      color:#fff;
+      font-weight:bold;
+    }
+    .social a.linkedin { background:#0077b5; }
+    .social a.x { background:#000000; }
+    .social a.whatsapp { background:#25D366; }
+
+    footer {
+      background:#0b1c26;
+      text-align:center;
+      padding:20px;
+      font-size:0.95rem;
+      color:#ccc;
+      margin-top:40px;
+      width:100%;
+    }
+
+    /* ====== Menú hamburguesa en móvil/tablet ====== */
+    .menu-toggle{
+      display:none;
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.25);
+      padding:8px 10px;
+      border-radius:6px;
+      color:#fff; cursor:pointer; font:inherit;
+    }
+    .menu-toggle:focus{ outline:2px solid #00aaff; outline-offset:2px; }
+    .menu-bars{
+      display:inline-block; width:22px; height:2px; background:#fff; position:relative; vertical-align:middle;
+    }
+    .menu-bars::before, .menu-bars::after{
+      content:""; position:absolute; left:0; width:22px; height:2px; background:#fff;
+    }
+    .menu-bars::before{ top:-6px; }
+    .menu-bars::after{ top:6px; }
+    .menu-toggle[aria-expanded="true"] .menu-bars{ background:transparent; }
+    .menu-toggle[aria-expanded="true"] .menu-bars::before{ transform:translateY(6px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] .menu-bars::after{ transform:translateY(-6px) rotate(-45deg); }
+
+    @media (max-width: 992px){
+      .menu-toggle{ display:inline-flex; align-items:center; gap:8px; }
+      header nav{
+        position: fixed;
+        top: var(--header-h);
+        left:0; right:0;
+        background: var(--header-bg);
+        padding:10px 16px;
+        display:flex; flex-direction:column; align-items:stretch; gap:4px;
+        max-height:0; overflow:hidden;
+        border-top:1px solid rgba(255,255,255,0.08);
+        transition:max-height .25s ease;
+        pointer-events: none; z-index: 999;
+      }
+      header nav.open{ max-height:70vh; pointer-events:auto; }
+      header nav a{ display:block; padding:12px 10px; border-radius:6px; }
+      header nav a:hover{ background: rgba(255,255,255,0.06); text-decoration:none; }
+    }
+
+    /* ====== AJUSTE SOLO PARA CELULAR: que nada se corte en el hero ====== */
+    @media (max-width: 640px){
+      .hero{
+        padding: 56px 16px 32px;     /* más margen lateral */
+        min-height: auto;            /* evita altura forzada */
+        background-position: center; /* seguro */
+      }
+      .hero-content{
+        max-width: 100%;             /* usa todo el ancho disponible */
+      }
+      .hero-content span{
+        font-size: clamp(0.85rem, 3.5vw, 1.05rem);
+      }
+      .hero-content h1{
+        font-size: clamp(1.6rem, 10vw, 2.4rem); /* escala en móvil */
+        line-height: 1.15;
+        letter-spacing: 0;
+        word-break: normal;
+        overflow-wrap: anywhere;
+        margin-bottom: 12px;
+      }
+      .hero-content ul{
+        font-size: clamp(0.95rem, 4vw, 1.1rem);
+      }
+    }
+
+    /* ====== Justificar TODO el contenido textual de main (como pediste antes) ====== */
+    main p, main li, main td, main th{
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto; -webkit-hyphens: auto; -ms-hyphens: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="https://www.tecnalisis.com">
+      <img src="../imagenes/largo_blanco_tecnalisis.png" alt="Logo TECNALISIS SAS">
+    </a>
+    <nav>
+      <a href="https://www.tecnalisis.com/#servicios">Servicios</a>
+      <a href="https://www.tecnalisis.com/#industrias">Industrias</a>
+      <a href="https://www.tecnalisis.com/#por-que">¿Por qué nosotros?</a>
+      <a href="https://www.tecnalisis.com/#casos">Casos</a>
+      <a href="https://www.tecnalisis.com/#politica">Política de calidad</a>
+      <a href="https://www.tecnalisis.com/#contacto" style="background:#00aaff;padding:8px 14px;border-radius:4px;color:#fff;">Solicitar propuesta</a>
+    </nav>
+  </header>
+
+  <main><main><div class="container">
+    <!-- Imagen inicial -->
+    <img src="dashboard-interaccion.png" alt="Técnico interactuando con un dashboard de mantenimiento" class="banner">
+
+    <h1>La importancia de los Dashboards en la Gestión de Mantenimiento</h1>
+    <p>
+      Los <strong>dashboards</strong> son el punto de convergencia entre los datos operativos y la toma de decisiones.
+      Un buen tablero convierte lecturas de sensores, registros del CMMS y costos en <em>información accionable</em>
+      para planificar, priorizar y auditar el mantenimiento con criterio técnico y enfoque de negocio.
+    </p>
+
+    <h2>📌 ¿Qué es un Dashboard de Mantenimiento?</h2>
+    <p>
+      Un <strong>dashboard de mantenimiento</strong> es una interfaz visual que centraliza y contextualiza información
+      crítica del área de mantenimiento: estado de activos, cumplimiento de planes, tiempos y costos de intervención,
+      riesgos y alertas. Integra múltiples fuentes de datos —CMMS, IoT (vibración, temperatura, presión, corriente),
+      ERP, hojas de vida y reportes de campo— para ofrecer una visión en tiempo real y un histórico analizables.
+    </p>
+    <p>
+      Su propósito es <strong>soportar decisiones</strong> en los tres enfoques del mantenimiento: correctivo, preventivo
+      y predictivo. Permite navegar por niveles (planta → línea → equipo crítico → componente) y responder preguntas
+      clave de disponibilidad, riesgos, cumplimiento y costos.
+    </p>
+
+    <h3>🔍 Indicadores clave (KPIs)</h3>
+    <ul>
+      <li>Disponibilidad (%)</li>
+      <li>MTBF</li>
+      <li>MTTR</li>
+      <li>Backlog (HH)</li>
+      <li>Cumplimiento PMP (%)</li>
+      <li>Costo por activo</li>
+      <li>Alertas predictivas</li>
+    </ul>
+
+    <h3>📊 Ejemplo de componentes de un Dashboard</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Componente</th>
+          <th>Detalle técnico</th>
+          <th>Decisión que habilita</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Resumen ejecutivo</strong></td>
+          <td>Disponibilidad, paradas, backlog, costos del periodo.</td>
+          <td>Priorizar líneas/equipos críticos y recursos.</td>
+        </tr>
+        <tr>
+          <td><strong>Salud de activos</strong></td>
+          <td>Tendencias de vibración/temperatura, alarmas, severidad.</td>
+          <td>Planificar intervención justo a tiempo (predictivo).</td>
+        </tr>
+        <tr>
+          <td><strong>Productividad</strong></td>
+          <td>MTBF/MTTR, cumplimiento preventivo, efectividad de OT.</td>
+          <td>Ajustar planes y cuadrillas.</td>
+        </tr>
+        <tr>
+          <td><strong>Costos</strong></td>
+          <td>Materiales, HH, servicios; costo por activo/intervención.</td>
+          <td>Optimizar presupuesto.</td>
+        </tr>
+        <tr>
+          <td><strong>Inventarios</strong></td>
+          <td>Ítems críticos, rotación, cobertura.</td>
+          <td>Asegurar repuestos y reducir sobrestock.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>🎥 Video demostrativo</h2>
+    <video controls>
+      <source src="WhatsApp Video 2025-09-18 at 13.01.01.mp4" type="video/mp4">
+      Tu navegador no soporta la reproducción de video.
+    </video>
+  </div></main>
+
+  <footer>
+    © 2025 TECNALISIS S.A.S. Todos los derechos reservados.
+  </footer>
+
+  <!-- JS mínimo: inyecta botón y controla apertura sin tapar enlaces -->
+  <script>
+  (function(){
+    try{
+      var header = document.querySelector('header');
+      var nav = header ? header.querySelector('nav') : null;
+      if(!header || !nav) return;
+
+      // Crear botón hamburguesa sin modificar tu HTML
+      var btn = document.createElement('button');
+      btn.className = 'menu-toggle';
+      btn.type = 'button';
+      btn.setAttribute('aria-label','Abrir menú de navegación');
+      btn.setAttribute('aria-controls','site-nav');
+      btn.setAttribute('aria-expanded','false');
+      btn.innerHTML = '<span class="menu-bars" aria-hidden="true"></span> Menú';
+
+      if(!nav.id){ nav.id = 'site-nav'; }
+      header.insertBefore(btn, nav);
+
+      function toggleNav(force){
+        var willOpen = typeof force === 'boolean' ? force : !nav.classList.contains('open');
+        nav.classList.toggle('open', willOpen);
+        btn.setAttribute('aria-expanded', willOpen ? 'true':'false');
+        document.body.style.overflow = (willOpen && window.matchMedia('(max-width: 992px)').matches) ? 'hidden' : '';
+      }
+
+      btn.addEventListener('click', function(){ toggleNav(); });
+      document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ toggleNav(false); } });
+
+      var mq = window.matchMedia('(min-width: 993px)');
+      if(mq && mq.addEventListener){
+        mq.addEventListener('change', function(e){ if(e.matches){ toggleNav(false); } });
+      }else if(mq && mq.addListener){
+        mq.addListener(function(e){ if(e.matches){ toggleNav(false); } });
+      }
+
+      nav.addEventListener('click', function(e){
+        if(e.target.tagName === 'A'){ toggleNav(false); }
+      });
+    }catch(err){
+      console && console.warn && console.warn('Menu script error:', err);
+    }
+  })();
+  </script>
+
+</body>
+</html>
