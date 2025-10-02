@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Industrial | TECNALISIS SAS</title>
+  <link rel="stylesheet" href="../estilos.css">
+  <style>
+:root{
+  --header-bg:#0b1c26;
+  --header-h: 90px;
+}
+body { background-color:#0b1c26; color:#fff; font-family: Arial, sans-serif; margin:0; }
+header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:15px 30px; background:#0b1c26;
+  position: sticky; top: 0; z-index: 1000;
+}
+header img { height:60px !important; width:auto !important; max-height:60px !important; }
+nav a { color:#fff; margin:0 10px; text-decoration:none; }
+nav a:hover { text-decoration:underline; }
+
+/* hamburger */
+.menu-toggle{
+  display:none;
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.25);
+  padding:8px 10px;
+  border-radius:6px;
+  color:#fff; cursor:pointer; font:inherit;
+}
+.menu-toggle:focus{ outline:2px solid #00aaff; outline-offset:2px; }
+.menu-bars{ display:inline-block; width:22px; height:2px; background:#fff; position:relative; vertical-align:middle; }
+.menu-bars::before, .menu-bars::after{ content:""; position:absolute; left:0; width:22px; height:2px; background:#fff; }
+.menu-bars::before{ top:-6px; } .menu-bars::after{ top:6px; }
+.menu-toggle[aria-expanded="true"] .menu-bars{ background:transparent; }
+.menu-toggle[aria-expanded="true"] .menu-bars::before{ transform:translateY(6px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] .menu-bars::after{ transform:translateY(-6px) rotate(-45deg); }
+
+@media (max-width: 992px){
+  .menu-toggle{ display:inline-flex; align-items:center; gap:8px; }
+  header nav{
+    position: fixed; top: var(--header-h); left:0; right:0;
+    background: var(--header-bg);
+    padding:10px 16px;
+    display:flex; flex-direction:column; align-items:stretch; gap:4px;
+    max-height:0; overflow:hidden;
+    border-top:1px solid rgba(255,255,255,0.08);
+    transition:max-height .25s ease;
+    pointer-events: none; z-index: 999;
+  }
+  header nav.open{ max-height:70vh; pointer-events:auto; }
+  header nav a{ display:block; padding:12px 10px; border-radius:6px; }
+  header nav a:hover{ background: rgba(255,255,255,0.06); text-decoration:none; }
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 80px 40px;
+  background: url("../imagenes/portada_blog_1.png") center/cover no-repeat;
+  min-height: 320px;
+  color: #fff;
+}
+.hero-content { max-width: 60%; }
+.hero-content span { background: #00aaff; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 1.1rem; font-weight: bold; }
+.hero-content h1 { font-size: 2.8rem; margin: 12px 0 0; line-height: 1.1; }
+
+section { padding:40px 20px; max-width:1200px; margin:auto; }
+.grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:24px; }
+@media (max-width: 1024px){ .grid{ grid-template-columns: repeat(2,1fr);} }
+@media (max-width: 640px){ .grid{ grid-template-columns: 1fr;} .hero-content{ max-width:100%; } }
+
+.card{
+  background:#0f2430;
+  border:1px solid #173342;
+  border-radius:10px;
+  overflow:hidden;
+  display:flex; flex-direction:column;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.card:hover{ transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+.card img{ width:100%; height:180px; object-fit:cover; }
+.card .content{ padding:16px; display:flex; flex-direction:column; gap:8px; }
+.card h3{ margin:0; color:#fff; font-size:1.15rem; }
+.card p{ margin:0; color:#cfe6f7; min-height:48px; }
+.card .meta{ font-size:.9rem; color:#94a3b8; }
+.card .actions{ margin-top:12px; display:flex; gap:10px; }
+.btn{
+  display:inline-block; padding:8px 12px; border-radius:6px; text-decoration:none; color:#fff; font-weight:600;
+  border:1px solid rgba(255,255,255,0.15);
+}
+.btn-primary{ background:#00aaff; border-color:#00aaff; }
+.btn-outline{ background:transparent; }
+footer { background:#0b1c26; text-align:center; padding:20px; font-size:0.95rem; color:#ccc; margin-top:40px; width:100%; }
+
+main p, main li, main td, main th{ text-align: justify; text-justify: inter-word; hyphens:auto; -webkit-hyphens:auto; -ms-hyphens:auto; }
+</style>
+</head>
+<body>
+  <header>
+    <a href="https://www.tecnalisis.com">
+      <img src="../imagenes/largo_blanco_tecnalisis.png" alt="Logo TECNALISIS SAS">
+    </a>
+    <nav>
+      <a href="https://www.tecnalisis.com/#servicios">Servicios</a>
+      <a href="https://www.tecnalisis.com/#industrias">Industrias</a>
+      <a href="https://www.tecnalisis.com/#por-que">¿Por qué nosotros?</a>
+      <a href="https://www.tecnalisis.com/#casos">Casos</a>
+      <a href="https://www.tecnalisis.com/#politica">Política de calidad</a>
+      <a href="https://www.tecnalisis.com/#contacto" style="background:#00aaff;padding:8px 14px;border-radius:4px;color:#fff;">Solicitar propuesta</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span>BLOG</span>
+        <h1>Blog Industrial de TECNALISIS SAS</h1>
+        <p>Artículos técnicos y guías prácticas sobre confiabilidad, mantenimiento y lubricación.</p>
+      </div>
+    </section>
+
+    <section aria-label="Listado de blogs">
+      <div class="grid">
+        <!-- Card 1 -->
+        <article class="card">
+          <img src="../imagenes/mtto_predictivo_blog_1.jpg" alt="Mantenimiento Predictivo Inteligente">
+          <div class="content">
+            <div class="meta">Septiembre 2025 • Predictivo</div>
+            <h3>Mantenimiento Predictivo Inteligente</h3>
+            <p>Estrategia para anticipar fallas con datos, análisis y criterio técnico.</p>
+            <div class="actions">
+              <a class="btn btn-primary" href="blog_1_Mantenimiento_predictivo.html">Leer</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card">
+          <img src="../imagenes/dashboard_mtto.jpg" alt="Dashboard de Mantenimiento">
+          <div class="content">
+            <div class="meta">Próxima publicación • Analítica</div>
+            <h3>Dashboard de Mantenimiento</h3>
+            <p>Cómo diseñar tableros claros para decisiones rápidas en planta.</p>
+            <div class="actions">
+              <a class="btn btn-outline" href="blog_2_Dashboard_mantenimiento.html">Ver avance</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card">
+          <img src="../imagenes/lubricacion_industrial.jpg" alt="Lubricación Industrial">
+          <div class="content">
+            <div class="meta">Próxima publicación • Lubricación</div>
+            <h3>Lubricación Industrial</h3>
+            <p>Buenas prácticas para prolongar la vida de rodamientos y engranajes.</p>
+            <div class="actions">
+              <a class="btn btn-outline" href="blog_3_Lubricacion_industrial.html">Ver avance</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2025 TECNALISIS S.A.S. Todos los derechos reservados.</footer>
+  <script>
+(function(){
+  try{
+    var header = document.querySelector('header');
+    var nav = header ? header.querySelector('nav') : null;
+    if(!header || !nav) return;
+
+    var btn = document.createElement('button');
+    btn.className = 'menu-toggle';
+    btn.type = 'button';
+    btn.setAttribute('aria-label','Abrir menú de navegación');
+    btn.setAttribute('aria-controls','site-nav');
+    btn.setAttribute('aria-expanded','false');
+    btn.innerHTML = '<span class="menu-bars" aria-hidden="true"></span> Menú';
+
+    if(!nav.id){ nav.id = 'site-nav'; }
+    header.insertBefore(btn, nav);
+
+    function toggleNav(force){
+      var willOpen = typeof force === 'boolean' ? force : !nav.classList.contains('open');
+      nav.classList.toggle('open', willOpen);
+      btn.setAttribute('aria-expanded', willOpen ? 'true':'false');
+      document.body.style.overflow = (willOpen && window.matchMedia('(max-width: 992px)').matches) ? 'hidden' : '';
+    }
+    btn.addEventListener('click', function(){ toggleNav(); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ toggleNav(false); } });
+
+    var mq = window.matchMedia('(min-width: 993px)');
+    if(mq && mq.addEventListener){ mq.addEventListener('change', function(e){ if(e.matches){ toggleNav(false); } }); }
+    else if(mq && mq.addListener){ mq.addListener(function(e){ if(e.matches){ toggleNav(false); } }); }
+
+    nav.addEventListener('click', function(e){ if(e.target.tagName === 'A'){ toggleNav(false); } });
+  }catch(err){ console && console.warn && console.warn('Menu script error:', err); }
+})();
+</script>
+</body>
+</html>
