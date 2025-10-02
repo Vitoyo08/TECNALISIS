@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>La importancia de los Dashboards en la Gestión de Mantenimiento</title>
   <link rel="stylesheet" href="../estilos.css">
@@ -13,7 +13,7 @@
       --panel:#0f2430;
       --panel-border:#173342;
       --container:1080px;
-      --table-border:#2b5c72; /* MÁS RESALTE EN LÍNEAS */
+      --table-border:#2b5c72; /* líneas de tabla más visibles */
     }
 
     html,body{height:100%}
@@ -34,7 +34,7 @@
     main{padding:0 0 40px}
     .container{max-width:var(--container);margin:0 auto;padding:24px 16px}
 
-    /* Banner: mostrar cara completa (izquierda) */
+    /* Banner: mostrar cara completa a la izquierda */
     .banner{
       width:100%;height:420px;object-fit:cover;object-position:left center;
       border-radius:12px;display:block;margin:18px auto;background:#0a1922;
@@ -43,35 +43,38 @@
     h1{font-size:clamp(2rem,3.6vw,2.8rem);line-height:1.15;margin:22px 0 8px}
     h2{font-size:clamp(1.35rem,2.7vw,1.9rem);margin:28px 0 10px}
     h3{font-size:clamp(1.15rem,2.2vw,1.4rem);margin:22px 0 8px}
-
-    /* Listas */
     ul{padding-left:20px}
 
-    /* Tabla centrada y más marcada */
+    /* Tabla centrada y resaltada */
     .table-wrap{max-width:var(--container);margin:12px auto 20px;padding:0 2px}
-    table{width:100%;border-collapse:collapse}
-    th,td{
-      padding:12px 10px;
-      border:1.6px solid var(--table-border); /* grosor mayor */
-      text-align:left;vertical-align:top
-    }
+    table{width:100%;border-collapse:collapse;box-shadow:0 0 0 1px var(--table-border) inset}
+    th,td{padding:12px 10px;border:1.6px solid var(--table-border);text-align:left;vertical-align:top}
     th{background:#12222e;font-weight:700}
     tr:nth-child(even) td{background:#0e1e28}
     tr:nth-child(odd) td{background:#0b1c26}
-    table{box-shadow:0 0 0 1px var(--table-border) inset} /* refuerzo perimetral */
 
     /* Video responsive */
-    .video-wrap{position:relative;width:100%;padding-bottom:56.25%;
-      background:#08131a;border-radius:12px;overflow:hidden;margin-top:8px}
+    .video-wrap{position:relative;width:100%;padding-bottom:56.25%;background:#08131a;border-radius:12px;overflow:hidden;margin-top:8px}
     .video-wrap video{position:absolute;inset:0;width:100%;height:100%}
 
-    /* Texto justificado en todo el main */
+    /* Texto justificado en toda la zona de contenido */
     main p,main li,main td,main th{
       text-align:justify;text-justify:inter-word;
       hyphens:auto;-webkit-hyphens:auto;-ms-hyphens:auto;
     }
 
-    /* Menú hamburguesa móvil (oculto en desktop) */
+    /* ===== Social share ===== */
+    .social { text-align:center; margin: 28px 0 4px; }
+    .social a{
+      display:inline-block; padding:12px 22px; border-radius:8px; margin:6px;
+      text-decoration:none; color:#fff; font-weight:700;
+      border:1px solid rgba(255,255,255,.10); box-shadow:0 6px 18px rgba(0,0,0,.25);
+    }
+    .social a.linkedin { background:#0a66c2; }  /* LinkedIn */
+    .social a.x        { background:#000000; }  /* X (Twitter) */
+    .social a.whatsapp { background:#25D366; }  /* WhatsApp */
+
+    /* Menú móvil: oculto en desktop */
     .menu-toggle{display:none !important;background:transparent;border:1px solid rgba(255,255,255,0.25);
       padding:8px 10px;border-radius:6px;color:#fff;cursor:pointer;font:inherit}
     .menu-toggle:focus{outline:2px solid var(--brand);outline-offset:2px}
@@ -94,15 +97,15 @@
       header nav a:hover{background:rgba(255,255,255,.06);text-decoration:none}
     }
 
-    /* Móvil */
-    @media (max-width:520px){
-      .banner{height:260px}
-    }
-
-    /* ===== Footer ===== */
+    /* Footer centrado */
     footer{
       width:100%;text-align:center;background:#0b1c26;color:#ccc;
       padding:22px 12px;margin-top:28px;font-size:.95rem
+    }
+
+    /* Móvil */
+    @media (max-width:520px){
+      .banner{height:260px}
     }
   </style>
 </head>
@@ -124,7 +127,7 @@
 
   <main>
     <div class="container">
-      <!-- Banner: rostro completo a la izquierda -->
+      <!-- Banner rostro a la izquierda -->
       <img src="../imagenes/Dashboard_blog.png"
            alt="Técnico interactuando con un dashboard de mantenimiento"
            class="banner">
@@ -193,19 +196,44 @@
         <video controls preload="metadata" playsinline poster="../imagenes/Dashboard_blog.png">
           <!-- Ruta principal solicitada -->
           <source src="VIDEOS/dashboard_mtto_2.0.mp4" type="video/mp4">
-          <!-- Fallback si la página queda en /Blog/ y el video está un nivel arriba -->
+          <!-- Fallback si el HTML queda una carpeta por debajo del video -->
           <source src="../VIDEOS/dashboard_mtto_2.0.mp4" type="video/mp4">
-          Tu navegador no soporta la reproducción de video.
-          <!-- Enlace directo por si el servidor no envía el MIME correcto -->
+          Tu navegador no soporta la reproducción de video. 
           <a href="VIDEOS/dashboard_mtto_2.0.mp4">Abrir video</a>
         </video>
       </div>
+
+      <!-- ===== Social Share ===== -->
+      <h3>📣 Conecta con tu comunidad</h3>
+      <ul>
+        <li>Comparte en LinkedIn y foros técnicos</li>
+        <li>Invita a expertos a colaborar</li>
+      </ul>
+
+      <div class="social">
+        <a id="share-linkedin" href="#" class="linkedin" rel="noopener"
+           onclick="window.open(this.href,'popUpLinkedIn','width=600,height=500,scrollbars=yes,resizable=yes'); return false;">
+          Compartir en LinkedIn
+        </a>
+
+        <a id="share-x" href="#" class="x" rel="noopener"
+           onclick="window.open(this.href,'popUpX','width=600,height=400,scrollbars=yes,resizable=yes'); return false;">
+          Compartir en X
+        </a>
+
+        <a id="share-whatsapp" href="#" class="whatsapp" rel="noopener"
+           onclick="window.open(this.href,'popUpWhatsapp','width=500,height=600,scrollbars=yes,resizable=yes'); return false;">
+          Compartir en WhatsApp
+        </a>
+      </div>
+      <!-- ===== /Social Share ===== -->
+
     </div>
   </main>
 
   <footer>© 2025 TECNALISIS S.A.S. Todos los derechos reservados.</footer>
 
-  <!-- Toggle del menú (solo visible en móvil) -->
+  <!-- Menú móvil (sin texto “Menú” en escritorio) -->
   <script>
     (function(){
       try{
@@ -219,7 +247,7 @@
         btn.setAttribute('aria-label','Abrir menú de navegación');
         btn.setAttribute('aria-controls','site-nav');
         btn.setAttribute('aria-expanded','false');
-        btn.innerHTML = '<span class="menu-bars" aria-hidden="true"></span> Menú';
+        btn.innerHTML = '<span class="menu-bars" aria-hidden="true"></span>'; // sin texto visible
 
         if(!nav.id){ nav.id = 'site-nav'; }
         header.insertBefore(btn, nav);
@@ -239,6 +267,22 @@
 
         nav.addEventListener('click', function(e){ if(e.target.tagName === 'A'){ toggleNav(false); } });
       }catch(err){ console && console.warn && console.warn('Menu script error:', err); }
+    })();
+  </script>
+
+  <!-- Enlaces de compartir dinámicos -->
+  <script>
+    (function(){
+      var pageUrl   = encodeURIComponent(window.location.href);
+      var pageTitle = encodeURIComponent(document.title);
+
+      var aL = document.getElementById('share-linkedin');
+      var aX = document.getElementById('share-x');
+      var aW = document.getElementById('share-whatsapp');
+
+      if(aL){ aL.href = 'https://www.linkedin.com/shareArticle?mini=true&url=' + pageUrl + '&title=' + pageTitle; }
+      if(aX){ aX.href = 'https://x.com/intent/post?text=' + pageTitle + '&url=' + pageUrl; }
+      if(aW){ aW.href = 'https://api.whatsapp.com/send?text=' + pageTitle + '%20' + pageUrl; }
     })();
   </script>
 </body>
