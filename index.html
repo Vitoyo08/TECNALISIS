@@ -3,15 +3,15 @@
 <html class="scroll-smooth" lang="es">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <link href="imagenes/ICONO_TECNALISIS.png" rel="icon"/>
 <title>TECNALISIS SAS (TECNALISIS)</title>
 <meta content="index, follow" name="robots"/>
 <link href="/sitemap.xml" rel="sitemap" title="Sitemap" type="application/xml"/>
-<meta content="Mantenimiento basado en condición, análisis de vibraciones, balanceo, alineación láser y proyectos de mejora para aumentar la disponibilidad y confiabilidad de activos." name="description"/>
+<meta content="Mantenimiento basado en condición, análisis de vibraciones, balanceo, alineación láser y proyectos de mejora para aumentar la disponibilidad y confiabilidad de activos." name="description">
 <meta content="TECNALISIS S.A.S. — Confiabilidad industrial" property="og:title"/>
 <meta content="Servicios CBM, alta precisión y desarrollo para optimizar tu producción." property="og:description"/>
-<meta content="website" property="og:type">
+<meta content="website" property="og:type"/>
 <meta content="#0B3B60" name="theme-color"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -141,13 +141,13 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   color: #fff;
 }
 </style>
-</meta><meta content="light dark" name="color-scheme"/><link as="image" fetchpriority="high" href="imagenes/REFRIGERACION.jpg" rel="preload"/><style>/* === Mobile hamburger menu: visibility & layout fixes === */
+</meta><style>/* === Mobile hamburger menu: LEFT side, responsive & clickable === */
 @media (max-width:1024px){
   html, body{ overflow-x:hidden; }
   .mobile-menu__btn{
     position: fixed !important;
     top: calc(env(safe-area-inset-top, 0) + 12px);
-    right: calc(env(safe-area-inset-right, 0) + 12px);
+    left: calc(env(safe-area-inset-left, 0) + 12px);
     display: inline-flex !important;
     align-items: center;
     gap: .375rem;
@@ -156,19 +156,20 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     color: #0b1222;
     border-radius: .625rem;
     box-shadow: 0 6px 18px rgba(0,0,0,.25);
-    z-index: 2147483647; /* over everything */
+    z-index: 2147483647;
     cursor: pointer;
     user-select: none;
+    -webkit-tap-highlight-color: transparent;
   }
   .mobile-menu__btn .mobile-menu__icon{ font-size: 1.1rem; line-height: 1; }
   #mobileMenuPanel{
     position: fixed;
-    top: 0; right: 0; bottom: 0;
+    top: 0; left: 0; bottom: 0;
     height: 100dvh;
     width: min(92vw, 420px);
     max-width: 92vw;
     background: rgba(10,18,34,0.985);
-    transform: translateX(100%);
+    transform: translateX(-100%);
     transition: transform .25s ease;
     z-index: 2147483646;
     padding-top: calc(env(safe-area-inset-top, 0) + 64px);
@@ -178,7 +179,6 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   }
   #mobileMenuPanel[aria-hidden="false"]{ transform: translateX(0); }
   #mobileMenuPanel * { pointer-events: auto; }
-  /* Backdrop */
   #mobileMenuBackdrop{
     position: fixed;
     inset: 0;
@@ -192,7 +192,6 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     opacity: 1;
     pointer-events: auto;
   }
-  /* Ensure list isn't cut */
   #mobileMenuPanel ul{ margin:0; padding: 0 16px 64px 16px; list-style:none; }
 }</style></head>
 <body class="min-h-screen text-white"><a class="skip-link" href="#contenido">Saltar al contenido principal</a>
@@ -203,13 +202,13 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <!-- Logo -->
 <img alt="largo blanco tecnalisis" decoding="async" loading="lazy" src="imagenes/largo_blanco_tecnalisis.png" style="height: 70px;"/>
 <!-- Desktop nav -->
-<div aria-hidden="true" class="mobile-nav mobile-menu" id="mobileMenuPanel" role="dialog" tabindex="-1"><button aria-controls="mobileMenuPanel" aria-expanded="false" aria-label="Abrir menú" class="mobile-menu__btn" id="mobileMenuToggle" type="button">Menú<span aria-hidden="true" class="mobile-menu__icon">☰</span></button><div aria-hidden="true" class="mobile-menu__panel" id="mobileMenuPanel"><ul id="mobileMenuList"></ul></div></div><nav class="nav hidden md:flex items-center gap-6 text-sm desktop-nav">
+<div class="mobile-nav mobile-menu"><button aria-controls="mobileMenuPanel" aria-expanded="false" aria-label="Abrir menú" class="mobile-menu__btn" id="mobileMenuToggle" type="button">Menú<span aria-hidden="true" class="mobile-menu__icon">☰</span></button><div aria-hidden="true" class="mobile-menu__panel" id="mobileMenuPanel" role="dialog" tabindex="-1"><ul id="mobileMenuList"></ul></div></div><nav class="nav hidden md:flex items-center gap-6 text-sm desktop-nav">
 <a class="hover:opacity-80" href="#servicios">Servicios</a>
 <a class="hover:opacity-80" href="#industrias">Industrias</a>
 <a class="hover:opacity-80" href="#por-que">¿Por qué nosotros?</a>
 <a class="hover:opacity-80" href="#casos">Casos</a>
 <a class="hover:opacity-80" href="#politica">Política de calidad</a>
-<a class="btn-blog" href="Blog/industrial.html">Ir al Blog</a>
+<a class="btn-blog" href="Blog/mantenimiento_predictivo_1">Ir al Blog</a>
 </nav>
 <!-- Desktop right buttons -->
 <div class="hidden md:flex items-center gap-2 shrink-0">
@@ -231,7 +230,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <source src="VIDEOS/TECNALISIS%20SAS_PAGINA_WEB.mp4" type="video/mp4"/>
 </video>
 <!-- Póster IMG con el MISMO sizing que el video principal para evitar saltos -->
-<img alt="" class="absolute inset-0 w-full h-full object-contain lg:object-cover object-center select-none pointer-events-none" decoding="async" fetchpriority="high" id="heroPoster" src="imagenes/REFRIGERACION.jpg"/>
+<img alt="" class="absolute inset-0 w-full h-full object-contain lg:object-cover object-center select-none pointer-events-none" id="heroPoster" src="imagenes/REFRIGERACION.jpg"/>
 <!-- Video principal -->
 <video autoplay="" class="absolute inset-0 w-full h-full object-contain lg:object-cover object-center" id="heroVideo" loop="" muted="" playsinline="" preload="metadata">
 <source src="VIDEOS/TECNALISIS%20SAS_PAGINA_WEB.mp4" type="video/mp4"/>
@@ -310,8 +309,8 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <div class="slide active"><img alt="CBM" class="w-full h-[420px] object-cover" decoding="async" loading="lazy" src="https://www.tecnalisis.com/imagenes/mantenimiento_basado_en_la_condici%C3%B3n.jpg"/></div>
 <div class="slide"><img alt="Alta precisión" class="w-full h-[420px] object-cover" decoding="async" loading="lazy" src="https://www.tecnalisis.com/imagenes/ingenieria_de_alta_precision.jpg"/></div>
 <div class="slide"><img alt="Desarrollo" class="w-full h-[420px] object-cover" decoding="async" loading="lazy" src="https://www.tecnalisis.com/imagenes/ingenieria_de_desarrollo.jpg"/></div>
-<button aria-label="Anterior" class="prev" type="button">‹</button>
-<button aria-label="Siguiente" class="next" type="button">›</button>
+<button aria-label="Anterior" class="prev">‹</button>
+<button aria-label="Siguiente" class="next">›</button>
 <div class="dots"></div>
 </div>
 <div class="p-4 md:p-6 bg-gradient-to-t from-black/50 to-transparent text-white text-sm">
@@ -443,7 +442,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <h2 class="text-3xl font-extrabold tracking-tight heading-outline">Portafolio de Servicios</h2>
 <div class="flex items-center gap-3">
 <a class="rounded-2xl border border-white/30 px-4 py-2 hover:bg-white/10" href="#contacto">Solicitar diagnóstico</a>
-<a class="rounded-2xl bg-white text-slate-900 px-4 py-2 font-medium hover:opacity-90" download="" href="documentos/PORTAFOLIO_SP_TECNALISIS_SAS.pdf">Descargar Portafolio</a>
+<a class="rounded-2xl bg-white text-slate-900 px-4 py-2 font-medium hover:opacity-90" download="" href="documentos/PORTAFOLIO_DE_SERVICIOS_TECNALISIS_SAS.pdf">Descargar Portafolio</a>
 </div>
 </div>
 <div class="mt-6 grid sm:grid-cols-3 gap-4">
@@ -466,9 +465,9 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <!-- Tabs -->
 <div class="mt-10">
 <div class="flex flex-wrap gap-2">
-<button class="tab-btn rounded-full border border-white/20 px-4 py-2 bg-white/10" data-tab="cbm" type="button">CBM</button>
-<button class="tab-btn rounded-full border border-white/20 px-4 py-2" data-tab="precision" type="button">Ing. de Alta Precisión</button>
-<button class="tab-btn rounded-full border border-white/20 px-4 py-2" data-tab="desarrollo" type="button">Ing. de Desarrollo</button>
+<button class="tab-btn rounded-full border border-white/20 px-4 py-2 bg-white/10" data-tab="cbm">CBM</button>
+<button class="tab-btn rounded-full border border-white/20 px-4 py-2" data-tab="precision">Ing. de Alta Precisión</button>
+<button class="tab-btn rounded-full border border-white/20 px-4 py-2" data-tab="desarrollo">Ing. de Desarrollo</button>
 </div>
 <div class="mt-6 space-y-6">
 <div class="tab-panel rounded-3xl glass-dark p-6" data-panel="cbm">
@@ -721,31 +720,24 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 </a>
 <script>(function(){const setVH=()=>document.documentElement.style.setProperty('--vh',`${window.innerHeight*0.01}px`);setVH();window.addEventListener('resize',setVH);})(); // Fix 100vh on mobile</script><div aria-hidden="true" id="mobileMenuBackdrop"></div><script>(function(){
   var btn = document.getElementById('mobileMenuToggle') || document.querySelector('.mobile-menu__btn');
-  var panel = document.getElementById('mobileMenuPanel');
+  var panel = document.getElementById('mobileMenuPanel') || document.querySelector('.mobile-menu__panel');
   var backdrop = document.getElementById('mobileMenuBackdrop');
   if(!btn || !panel) return;
   function setOpen(open){
     panel.setAttribute('aria-hidden', open ? 'false' : 'true');
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     if(backdrop){ backdrop.setAttribute('data-open', open ? 'true' : 'false'); }
-    if(open){
-      document.documentElement.style.overflow = 'hidden';
-      document.body.style.overflow = 'hidden';
-      if(panel.focus){ try{ panel.focus(); }catch(e){} }
-    }else{
-      document.documentElement.style.overflow = '';
-      document.body.style.overflow = '';
-    }
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+    document.body.style.overflow = open ? 'hidden' : '';
+    if(open && panel.focus){ try{ panel.focus(); }catch(e){} }
   }
   btn.addEventListener('click', function(e){
     e.stopPropagation();
-    var isOpen = panel.getAttribute('aria-hidden') === 'false';
-    setOpen(!isOpen);
+    setOpen(panel.getAttribute('aria-hidden') !== 'false');
   });
   if(backdrop){
     backdrop.addEventListener('click', function(){ setOpen(false); });
   }
-  // Close when clicking a link inside the panel
   panel.addEventListener('click', function(e){
     var a = e.target.closest('a');
     if(a){ setOpen(false); }
@@ -753,7 +745,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape' && panel.getAttribute('aria-hidden') === 'false'){ setOpen(false); }
   });
-  // Ensure initial state is hidden (prevents flash)
+  // Start hidden to avoid flash
   setOpen(false);
 })();</script></body>
 </html>
