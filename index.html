@@ -9,8 +9,8 @@
 <meta content="index, follow" name="robots"/>
 <link href="/sitemap.xml" rel="sitemap" title="Sitemap" type="application/xml"/>
 <meta content="Mantenimiento basado en condición, análisis de vibraciones, balanceo, alineación láser y proyectos de mejora para aumentar la disponibilidad y confiabilidad de activos." name="description"/>
-<meta content="TECNALISIS S.A.S. — Confiabilidad industrial" property="og:title">
-<meta content="Servicios CBM, alta precisión y desarrollo para optimizar tu producción." property="og:description"/>
+<meta content="TECNALISIS S.A.S. — Confiabilidad industrial" property="og:title"/>
+<meta content="Servicios CBM, alta precisión y desarrollo para optimizar tu producción." property="og:description">
 <meta content="website" property="og:type"/>
 <meta content="#0B3B60" name="theme-color"/>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -141,11 +141,40 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   color: #fff;
 }
 </style>
-</meta><meta content="light dark" name="color-scheme"/><link as="image" fetchpriority="high" href="imagenes/REFRIGERACION.jpg" rel="preload"/><style>@media (max-width:1024px){
-  .mobile-menu__btn{ position: fixed; top: 0.75rem; right: 0.75rem; z-index: 50; }
-  #mobileMenuPanel{ position: fixed; top: 0; right: 0; bottom: 0; width: 80vw; max-width: 320px;
-    background: rgba(10,18,34,0.98); transform: translateX(100%); transition: transform .25s ease; z-index: 40; }
-  #mobileMenuPanel[aria-hidden="false"]{ transform: translateX(0); }
+</meta><meta content="light dark" name="color-scheme"/><link as="image" fetchpriority="high" href="imagenes/REFRIGERACION.jpg" rel="preload"/><style>/* Responsive mobile menu adjustments */
+@media (max-width:1024px){
+  html, body{ overflow-x:hidden; }
+  .mobile-menu__btn{
+    position: fixed;
+    top: calc(env(safe-area-inset-top, 0) + 0.5rem);
+    right: calc(env(safe-area-inset-right, 0) + 0.5rem);
+    z-index: 1000;
+  }
+  #mobileMenuPanel{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100dvh;
+    width: min(92vw, 380px);
+    max-width: 92vw;
+    background: rgba(10,18,34,0.98);
+    transform: translateX(100%);
+    transition: transform .25s ease;
+    z-index: 999;
+    padding-top: calc(env(safe-area-inset-top, 0) + 0.75rem);
+    padding-bottom: 1rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: -8px 0 24px rgba(0,0,0,.35);
+  }
+  #mobileMenuPanel[aria-hidden="false"]{
+    transform: translateX(0);
+  }
+  #mobileMenuPanel ul{
+    margin: 0;
+    padding: 0 1rem 2.5rem 1rem; /* deja espacio inferior para no cortar el último item */
+    list-style: none;
+  }
 }</style></head>
 <body class="min-h-screen text-white"><a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 <!-- Header -->
@@ -671,81 +700,28 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <a class="whatsapp-button" href="https://wa.me/573173651648" rel="noopener noreferrer" target="_blank" title="Escríbenos por WhatsApp">
 <img alt="WhatsApp" decoding="async" loading="lazy" src="imagenes/logo_whatsapp.png"/>
 </a>
-<script>(function(){const setVH=()=>document.documentElement.style.setProperty('--vh',`${window.innerHeight*0.01}px`);setVH();window.addEventListener('resize',setVH);})(); // Fix 100vh on mobile</script><script>
-/* TECNALISIS mobile menu script (enhanced: include header anchors + hide on mobile) */
-(function(){
-  function ready(fn){ if(document.readyState!='loading'){ fn(); } else { document.addEventListener('DOMContentLoaded', fn); } }
-  ready(function(){
-    var header = document.querySelector('header');
-    if(!header) return;
-    var desktopNav = header.querySelector('.desktop-nav');
-    var list = document.getElementById('mobileMenuList');
-    var wanted = ['servicios','industrias','por qué nosotros','casos','política de calidad','quiénes somos','solicitar propuesta','blog'];
-
-    function matchesWanted(text){
-      text = (text||'').trim().toLowerCase();
-      return wanted.some(function(w){ return text.indexOf(w) !== -1; });
+<script>(function(){const setVH=()=>document.documentElement.style.setProperty('--vh',`${window.innerHeight*0.01}px`);setVH();window.addEventListener('resize',setVH);})(); // Fix 100vh on mobile</script><script>(function(){
+  var btn = document.getElementById('mobileMenuToggle') || document.querySelector('.mobile-menu__btn');
+  var panel = document.getElementById('mobileMenuPanel');
+  if(!btn || !panel) return;
+  function setOpen(open){
+    panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if(open){
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      if(panel.focus){ try{ panel.focus(); }catch(e){} }
+    }else{
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
     }
-
-    if(list && list.children.length===0){
-      // 1) Take from desktop nav if present
-      if(desktopNav){
-        desktopNav.querySelectorAll('a[href]').forEach(function(a){
-          if(matchesWanted(a.textContent)){
-            var li = document.createElement('li');
-            var cl = a.cloneNode(true);
-            cl.removeAttribute('id');
-            cl.removeAttribute('target');
-            li.appendChild(cl);
-            list.appendChild(li);
-          }
-        });
-      }
-      // 2) Also scan direct header anchors (outside nav), add them to menu and hide on mobile
-      header.querySelectorAll('a[href]').forEach(function(a){
-        if(a.id === 'mobileMenuToggle' || a.closest('.mobile-menu')) return; // skip menu controls
-        if(matchesWanted(a.textContent)){
-          if(!Array.from(list.querySelectorAll('a')).some(function(x){ return (x.textContent||'').trim() === (a.textContent||'').trim(); })){
-            var li = document.createElement('li');
-            var cl = a.cloneNode(true);
-            cl.removeAttribute('id');
-            cl.removeAttribute('target');
-            li.appendChild(cl);
-            list.appendChild(li);
-          }
-          // Hide original on mobile to avoid duplicates
-          a.classList.add('mobile-hide-link');
-        }
-      });
-
-      // Fallback: if still empty, clone first-level anchors from header
-      if(list.children.length===0){
-        header.querySelectorAll('a[href]').forEach(function(a, idx){
-          if(a.id === 'mobileMenuToggle' || a.closest('.mobile-menu')) return;
-          if(idx<12){
-            var li = document.createElement('li');
-            var cl = a.cloneNode(true);
-            cl.removeAttribute('id');
-            li.appendChild(cl);
-            list.appendChild(li);
-            a.classList.add('mobile-hide-link');
-          }
-        });
-      }
-    }
-
-    // Toggle logic
-    var btn = document.getElementById('mobileMenuToggle');
-    var panel = document.getElementById('mobileMenuPanel');
-    if(!btn || !panel) return;
-    function closeMenu(){ btn.setAttribute('aria-expanded','false'); panel.setAttribute('aria-hidden','true'); }
-    function openMenu(){ btn.setAttribute('aria-expanded','true'); panel.setAttribute('aria-hidden','false'); }
-    btn.addEventListener('click', function(){ (btn.getAttribute('aria-expanded')==='true') ? closeMenu() : openMenu(); });
-    document.addEventListener('click', function(e){
-      if(!panel.contains(e.target) && e.target!==btn && !btn.contains(e.target)){ closeMenu(); }
-    });
-    document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeMenu(); });
+  }
+  btn.addEventListener('click', function(){
+    var isOpen = panel.getAttribute('aria-hidden') === 'false';
+    setOpen(!isOpen);
   });
-})();
-</script></body>
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && panel.getAttribute('aria-hidden') === 'false'){ setOpen(false); }
+  });
+})();</script></body>
 </html>
