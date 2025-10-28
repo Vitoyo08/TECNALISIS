@@ -8,8 +8,8 @@
 <title>TECNALISIS SAS (TECNALISIS)</title>
 <meta content="index, follow" name="robots"/>
 <link href="/sitemap.xml" rel="sitemap" title="Sitemap" type="application/xml"/>
-<meta content="Mantenimiento basado en condición, análisis de vibraciones, balanceo, alineación láser y proyectos de mejora para aumentar la disponibilidad y confiabilidad de activos." name="description">
-<meta content="TECNALISIS S.A.S. — Confiabilidad industrial" property="og:title"/>
+<meta content="Mantenimiento basado en condición, análisis de vibraciones, balanceo, alineación láser y proyectos de mejora para aumentar la disponibilidad y confiabilidad de activos." name="description"/>
+<meta content="TECNALISIS S.A.S. — Confiabilidad industrial" property="og:title">
 <meta content="Servicios CBM, alta precisión y desarrollo para optimizar tu producción." property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="#0B3B60" name="theme-color"/>
@@ -141,7 +141,12 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   color: #fff;
 }
 </style>
-</meta><meta content="light dark" name="color-scheme"/><link as="image" fetchpriority="high" href="imagenes/REFRIGERACION.jpg" rel="preload"/></head>
+</meta><meta content="light dark" name="color-scheme"/><link as="image" fetchpriority="high" href="imagenes/REFRIGERACION.jpg" rel="preload"/><style>@media (max-width:1024px){
+  .mobile-menu__btn{ position: fixed; top: 0.75rem; right: 0.75rem; z-index: 50; }
+  #mobileMenuPanel{ position: fixed; top: 0; right: 0; bottom: 0; width: 80vw; max-width: 320px;
+    background: rgba(10,18,34,0.98); transform: translateX(100%); transition: transform .25s ease; z-index: 40; }
+  #mobileMenuPanel[aria-hidden="false"]{ transform: translateX(0); }
+}</style></head>
 <body class="min-h-screen text-white"><a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 <!-- Header -->
 <header class="sticky top-0 z-40 border-b border-white/10 bg-slate-900/40 backdrop-blur transition-colors" id="mainHeader">
@@ -150,7 +155,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <!-- Logo -->
 <img alt="largo blanco tecnalisis" decoding="async" loading="lazy" src="imagenes/largo_blanco_tecnalisis.png" style="height: 70px;"/>
 <!-- Desktop nav -->
-<div aria-hidden="true" class="mobile-nav mobile-menu" id="mobileMenuPanel" role="dialog"><button aria-controls="mobileMenuPanel" aria-expanded="false" aria-label="Abrir menú" class="mobile-menu__btn" id="mobileMenuToggle" type="button">Menú<span aria-hidden="true" class="mobile-menu__icon">☰</span></button><div aria-hidden="true" class="mobile-menu__panel" id="mobileMenuPanel"><ul id="mobileMenuList"></ul></div></div><nav class="nav hidden md:flex items-center gap-6 text-sm desktop-nav">
+<div aria-hidden="true" class="mobile-nav mobile-menu" id="mobileMenuPanel" role="dialog" tabindex="-1"><button aria-controls="mobileMenuPanel" aria-expanded="false" aria-label="Abrir menú" class="mobile-menu__btn" id="mobileMenuToggle" type="button">Menú<span aria-hidden="true" class="mobile-menu__icon">☰</span></button><div aria-hidden="true" class="mobile-menu__panel" id="mobileMenuPanel"><ul id="mobileMenuList"></ul></div></div><nav class="nav hidden md:flex items-center gap-6 text-sm desktop-nav">
 <a class="hover:opacity-80" href="#servicios">Servicios</a>
 <a class="hover:opacity-80" href="#industrias">Industrias</a>
 <a class="hover:opacity-80" href="#por-que">¿Por qué nosotros?</a>
