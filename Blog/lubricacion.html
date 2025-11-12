@@ -130,5 +130,40 @@
   </main>
 
   <footer>© 2025 TECNALISIS S.A.S. Todos los derechos reservados.</footer>
+
+  <!-- Agregado: script que ajusta los enlaces de compartir a ESTA página sin tocar el contenido -->
+  <script>
+    (function(){
+      // Datos de la página actual
+      var pageUrl   = encodeURIComponent(window.location.href);
+      var pageTitle = encodeURIComponent(document.title);
+      // Breve descripción (no modifica el contenido, solo para el share)
+      var pageDesc  = encodeURIComponent("Artículo de TECNALISIS sobre lubricación industrial y monitoreo por ultrasonido.");
+
+      // Buscamos los tres enlaces por su texto visible (sin cambiar el HTML original)
+      var links = document.querySelectorAll('a');
+      links.forEach(function(a){
+        var t = (a.textContent || a.innerText || '').trim();
+
+        if(t === 'Compartir en LinkedIn'){
+          a.href = 'https://www.linkedin.com/shareArticle?mini=true&url=' + pageUrl +
+                   '&title=' + pageTitle + '&summary=' + pageDesc;
+          a.target = '_blank';
+          a.rel = 'noopener';
+        }
+        if(t === 'Compartir en X'){
+          // X (Twitter)
+          a.href = 'https://x.com/intent/post?text=' + pageTitle + '%20' + pageDesc + '%20' + pageUrl;
+          a.target = '_blank';
+          a.rel = 'noopener';
+        }
+        if(t === 'Compartir en WhatsApp'){
+          a.href = 'https://api.whatsapp.com/send?text=' + pageTitle + '%0A' + pageDesc + '%0A' + pageUrl;
+          a.target = '_blank';
+          a.rel = 'noopener';
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
